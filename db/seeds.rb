@@ -1,15 +1,16 @@
 # require "open-uri"
+Costume.destroy_all
+User.destroy_all
 
-charles= User.create(email:"charles.d@hotmail.com", password:"123456")
-jeanne= User.create(email:"jeanne.c@gmail.com", password:"nounou")
-lea= User.create(email:"lea.v@gmail.com", password:"coucou")
-
-
-
-
+charles = User.create(email:"charles.d@hotmail.com", password:"123456")
+jeanne = User.create(email:"jeanne.c@gmail.com", password:"nounou")
+lea = User.create(email:"lea.v@gmail.com", password:"coucou")
 
 
-pirate = Costume.create!(user: charles, description: "Déguisement d'homme pirate", location: "Paris", price: 20, size: "M", gender: "H", theme: "adulte")
+
+
+
+pirate = Costume.create!(user: jeanne, description: "Déguisement d'homme pirate", location: "Paris", price: 20, size: "M", gender: "H", theme: "adulte")
 file_pirate = URI.open("https://www.presse-citron.net/wordpress_prod/wp-content/uploads/2019/10/pirates-des-caraibes-51-e1572172251420.jpg")
 pirate.photos.attach(io: file_pirate, filename: 'pirate.jpg', content_type: 'image/jpg')
 
