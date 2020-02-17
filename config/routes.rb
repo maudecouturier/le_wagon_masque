@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'costumes#index'
   resources :costumes, except: [:index]
   resources :bookings do
-    resources :reviews, only: [:new, :create, :index, :destroy]
+    resources :reviews, only: [:new, :create, :destroy]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

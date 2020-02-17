@@ -2,12 +2,17 @@ class CostumesController < ApplicationController
   before_action :set_costume, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: :index
 
-
   def index
     @costumes = Costume.all
   end
 
   def show
+    bookings = Booking.where(costume: @costume)
+    reviews = []
+    bookings.each do |booking|
+      reviews << Review.find_by(booking: booking)
+    end
+
   end
 
   def new
@@ -16,6 +21,7 @@ class CostumesController < ApplicationController
 
   def create
     @costume = Costume.new(costume_params)
+    @costume.user = current_user
     if @costume.save
       redirect_to costume_path(@costume)
     else
@@ -42,7 +48,7 @@ class CostumesController < ApplicationController
   private
 
   def costume_params
-    params.require(:costume).permit(:description, :location, :price, :size, :gender, :theme, :user_id)
+    params.require(:costume).permit(:description, :location, :price, :size, :gender, :theme)
   end
 
   def set_costume
