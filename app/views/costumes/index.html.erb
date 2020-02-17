@@ -9,10 +9,12 @@
         <%= cl_image_tag costume.photo.key, crop: :fill if costume.photo.attached? %>
         <div class="card-costume-infos">
           <div>
-            <h2><%= costume.description %></h2>
-            <p><%= costume.theme %></p>
+            <h2><%= link_to costume.description, costume_path(costume) %></h2>
           </div>
-          <h2 class="card-trip-pricing"><%= costume.price %> €</h2>
+          <div class="d-flex justify-content-between">
+            <p><%= costume.theme %></p>
+            <h2 class="card-trip-pricing"><%= costume.price %> €/jour</h2>
+          </div>
         </div>
       </div>
 
