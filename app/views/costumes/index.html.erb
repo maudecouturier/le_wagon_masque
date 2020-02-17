@@ -4,38 +4,20 @@
 
 <div class="row">
   <div class="cards">
-    <div class="card-costume">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-costume-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
+    <% @costumes.each do |costume| %>
+      <div class="card-costume">
+        <%= cl_image_tag costume.photo.key, crop: :fill if costume.photo.attached? %>
+        <div class="card-costume-infos">
+          <div>
+            <h2><%= costume.description %></h2>
+            <p><%= costume.theme %></p>
+          </div>
+          <h2 class="card-trip-pricing"><%= costume.price %> €</h2>
         </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
       </div>
-    </div>
 
-    <div class="card-costume">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-costume-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-      </div>
-    </div>
+    <% end %>
 
-    <div class="card-costume">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-      <div class="card-costume-infos">
-        <div>
-          <h2>Title here</h2>
-          <p>Short description here!</p>
-        </div>
-        <h2 class="card-trip-pricing">£99.99</h2>
-      </div>
-    </div>
   </div>
 </div>
 
