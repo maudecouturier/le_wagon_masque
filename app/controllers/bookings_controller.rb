@@ -9,11 +9,13 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @costume = Costume.find(params[:costume_id])
     @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
+    @costume = Costume.find(params[:costume_id])
     if @booking.save
       redirect_to booking_path(@booking)
     else
