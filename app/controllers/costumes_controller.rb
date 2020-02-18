@@ -9,12 +9,15 @@ class CostumesController < ApplicationController
   end
 
   def show
-    bookings = Booking.where(costume: @costume)
-    reviews = []
-    bookings.each do |booking|
-      reviews << Review.find_by(booking: booking)
+    @bookings = Booking.where(costume: @costume)
+    @reviews = []
+    @bookings.each do |booking|
+      @reviews << Review.find_by(booking: booking)
     end
+  end
 
+  def my_costumes
+    @my_costumes = Costume.where(user: current_user)
   end
 
   def new
