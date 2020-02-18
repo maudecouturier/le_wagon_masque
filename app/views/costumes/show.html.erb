@@ -1,0 +1,20 @@
+<div class="row">
+  <h2><%= @costume.description %></h2>
+</div>
+
+<div class="row">
+  <div class="col-9">
+    <div class="card-product">
+      <%= cl_image_tag @costume.photo.key, crop: :fill if @costume.photo.attached? %>
+      <div class="card-product-infos">
+        <h2><%= @costume.description %></h2>
+        <p>Catégorie : <%= @costume.theme %></p>
+        <p>Taille : <%= @costume.size %></p>
+        <p>Genre : <%= @costume.gender %></p>
+        <p>Prix : <%= @costume.price %> €/jour</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
