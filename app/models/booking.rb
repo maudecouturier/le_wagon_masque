@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :costume
-  has_one :review
+  has_one :review, dependent: :destroy
   validates :status, inclusion: { in: %w(approved pending denied),
     message: "Not a valid status" }
   validates :start_date, :end_date, presence: true
