@@ -4,7 +4,7 @@
 <div class="costumes_container">
   <% @my_costumes.each do |costume| %>
     <div class="row">
-    <div class="col-9">
+    <div class="col-6">
       <div class="card-product">
         <%= cl_image_tag costume.photo.key, crop: :fill if costume.photo.attached? %>
         <div class="card-product-infos">
@@ -22,6 +22,47 @@
             data: { confirm: "Are you sure?" },
             class: "btn btn-danger"  %>
        </div>
+      </div>
+    </div>
+    <div name="card booking">
+      <div name="bookings request pending">
+        <ul> Pending:
+        <% costume.bookings.select do |booking|  %>
+          <% if booking.status == 'pending' %>
+            <li>
+              <%= booking.user.email %> |
+              <%= booking.start_date %> -
+              <%= booking.end_date %>
+            </li>
+          <% end %>
+        </ul>
+        <% end %>
+      </div>
+      <div name="bookings requests approved">
+        <ul> Approved:
+        <% costume.bookings.select do |booking|  %>
+          <% if booking.status == 'approved' %>
+            <li>
+              <%= booking.user.email %> |
+              <%= booking.start_date %> -
+              <%= booking.end_date %>
+            </li>
+          <% end %>
+        </ul>
+        <% end %>
+      </div>
+      <div name="bookings requests denied">
+        <ul> Denied:
+        <% costume.bookings.select do |booking|  %>
+          <% if booking.status == 'denied' %>
+            <li>
+              <%= booking.user.email %> |
+              <%= booking.start_date %> -
+              <%= booking.end_date %>
+            </li>
+          <% end %>
+        </ul>
+        <% end %>
       </div>
     </div>
   </div>

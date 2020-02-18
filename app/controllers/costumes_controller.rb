@@ -41,7 +41,7 @@ class CostumesController < ApplicationController
 
   def update
     if @costume.update(costume_params)
-      redirect_to costume_path(@costume)
+      redirect_to my_costumes_path
     else
       render :edit
     end
