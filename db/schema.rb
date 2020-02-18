@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_02_18_133445) do
     t.bigint "costume_id", null: false
     t.date "start_date"
     t.date "end_date"
-    t.string "status"
+    t.string "status", default: "pending"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["costume_id"], name: "index_bookings_on_costume_id"
