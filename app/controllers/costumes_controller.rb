@@ -11,6 +11,7 @@ class CostumesController < ApplicationController
   def show
     @bookings = Booking.where(costume: @costume)
     @reviews = []
+    @booking = Booking.new
     @bookings.each do |booking|
       @reviews << Review.find_by(booking: booking)
     end
@@ -25,6 +26,7 @@ class CostumesController < ApplicationController
   end
 
   def create
+
     @costume = Costume.new(costume_params)
     @costume.user = current_user
     if @costume.save
@@ -53,7 +55,7 @@ class CostumesController < ApplicationController
   private
 
   def costume_params
-    params.require(:costume).permit(:description, :location, :price, :size, :gender, :theme, :photo)
+    params.require(:costume).permit(:title, :description, :location, :price, :size, :gender, :theme, :photo)
   end
 
   def set_costume

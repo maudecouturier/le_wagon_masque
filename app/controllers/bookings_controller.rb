@@ -2,26 +2,28 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = Booking.all
+    @bookings = Booking.where(user: current_user)
   end
 
   def show
   end
 
-  def my_bookings
-    @my_bookings = Booking.where(user: current_user)
-  end
+  # def my_bookings
+  # end
 
-  def new
-    @costume = Costume.find(params[:costume_id])
-    @booking = Booking.new
-  end
+  # def new
+  #   @costume = Costume.find(params[:costume_id])
+  #   @booking = Booking.new
+  # end
 
   def create
     @booking = Booking.new(booking_params)
     @costume = Costume.find(params[:costume_id])
+    @user = current_user
+    @booking.costume = @costume
+    @booking.user = @user
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to bookings_path
     else
       render :new
     end
@@ -39,6 +41,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to bookings_path
   end
