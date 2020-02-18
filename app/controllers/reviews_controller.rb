@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     if @review.save!
-      redirect_to my_bookings_path
+      redirect_to bookings_path
     else
       render :new
     end
@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    redirect_to my_bookings_path
+    redirect_to bookings_path
   end
 
   private
