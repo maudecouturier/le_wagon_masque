@@ -1,17 +1,23 @@
-<h1>My bookings</h1>
+<div class="row">
+  <h1>My bookings</h1>
+</div>
 
-<div>
-  <% @my_bookings.each do |booking| %>
-    <div class="row">
+<% @my_bookings.each do |booking| %>
+  <div class="row">
     <div class="col-9">
-      <div class="card-product">
-        <div class="card-product-infos">
+      <div class="card-booking">
+        <%= cl_image_tag booking.costume.photo.key, crop: :fill if booking.costume.photo.attached? %>
+        <div class="card-booking-infos">
+          <h2><%= booking.costume.description %></h2>
           <p>Start date : <%= booking.start_date %></p>
           <p>End date : <%= booking.end_date %></p>
-          <p>Costume : <%= booking.costume.description %></p>
+        </div>
+        <div>
+          <h3>Add a review</h3>
+
+
         </div>
       </div>
     </div>
   </div>
-    <% end %>
-</div>
+<% end %>
