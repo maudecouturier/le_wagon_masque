@@ -47,7 +47,7 @@ class CostumesController < ApplicationController
 
   def destroy
     @costume.destroy
-    redirect_to costumes_path
+    redirect_to my_costumes_path
   end
 
   private
