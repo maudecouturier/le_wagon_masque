@@ -32,8 +32,8 @@ wagon.photo.attach(io: file_wagon, filename: 'wagon.jpg', content_type: 'image/j
 puts "Costumes created!"
 
 puts "Creating bookings..."
-booking_1 = Booking.create!(user: charles, costume: pirate)
-booking_2 = Booking.create!(user: jeanne, costume: mouton)
-booking_3 = Booking.create!(user: lea, costume: wagon)
-booking_4 = Booking.create!(user: charles, costume: princesse)
+booking_1 = Booking.create!(user: charles, costume: pirate, start_date: Date.new(2019,10,1), end_date: Date.new(2019,10,3))
+booking_2 = Booking.create!(user: jeanne, costume: mouton, start_date: Date.new(2010,01,12), end_date: Date.new(2020,01,15))
+booking_3 = Booking.create!(user: lea, costume: wagon, start_date: Date.new(2019,10,31), end_date: Date.new(2019,11,2))
 puts "Bookings created!"
+

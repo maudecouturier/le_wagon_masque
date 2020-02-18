@@ -6,6 +6,11 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(user: current_user)
   end
 
+  # def costume_booking_requests(costume_id)
+  #   @costume = Costume.find(costume_id)
+  #   @costume_bookings_requests = @costume.bookings
+  # end
+
   def show
   end
 
