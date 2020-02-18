@@ -1,18 +1,23 @@
 class CostumesController < ApplicationController
   before_action :set_costume, only: [:show, :edit, :update, :destroy]
+
   skip_before_action :authenticate_user!, only: [:index, :show]
+
 
   def index
     @costumes = Costume.all
   end
 
   def show
-    bookings = Booking.where(costume: @costume)
-    reviews = []
-    bookings.each do |booking|
-      reviews << Review.find_by(booking: booking)
+    @bookings = Booking.where(costume: @costume)
+    @reviews = []
+    @bookings.each do |booking|
+      @reviews << Review.find_by(booking: booking)
     end
+  end
 
+  def my_costumes
+    @my_costumes = Costume.where(user: current_user)
   end
 
   def new
@@ -42,13 +47,13 @@ class CostumesController < ApplicationController
 
   def destroy
     @costume.destroy
-    redirect_to costumes_path
+    redirect_to my_costumes_path
   end
 
   private
 
   def costume_params
-    params.require(:costume).permit(:description, :location, :price, :size, :gender, :theme)
+    params.require(:costume).permit(:description, :location, :price, :size, :gender, :theme, :photo)
   end
 
   def set_costume

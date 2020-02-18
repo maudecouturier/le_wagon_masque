@@ -28,4 +28,6 @@ file_wagon = URI.open("https://media.monsieurdeguisement.com/media/catalog/produ
 wagon.photo.attach(io: file_wagon, filename: 'wagon.jpg', content_type: 'image/jpg')
 
 
-
+booking_1 = Booking.create!(user: charles, costume: pirate)
+booking_2 = Booking.create!(user: jeanne, costume: mouton)
+booking_3 = Booking.create!(user: lea, costume: wagon)

@@ -1,0 +1,29 @@
+<h1>My costumes</h1>
+
+<%= link_to "Add a costume", new_costume_path  %>
+<div class="costumes_container">
+  <% @my_costumes.each do |costume| %>
+    <div class="row">
+    <div class="col-9">
+      <div class="card-product">
+        <%= cl_image_tag costume.photo.key, crop: :fill if costume.photo.attached? %>
+        <div class="card-product-infos">
+          <h2><%= costume.description %></h2>
+          <p>Catégorie : <%= costume.theme %></p>
+          <p>Taille : <%= costume.size %></p>
+          <p>Genre : <%= costume.gender %></p>
+          <p>Prix : <%= costume.price %> €/jour</p>
+        </div>
+       <div >
+         <%= link_to "Edit", edit_costume_path(costume), class: "btn btn-secondary" %>
+         <%= link_to "Delete",
+            costume_path(costume),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class: "btn btn-danger"  %>
+       </div>
+      </div>
+    </div>
+  </div>
+    <% end %>
+</div>
