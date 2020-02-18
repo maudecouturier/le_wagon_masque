@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'costumes#index'
   resources :costumes
+  get '/my_costumes', to: 'costumes#my_costumes'
   resources :bookings do
     resources :reviews, only: [:new, :create, :destroy]
   end
