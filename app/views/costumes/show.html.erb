@@ -3,7 +3,7 @@
 </div>
 
 <div class="row">
-  <div class="col-9">
+  <div class="col-6">
     <div class="card-product">
       <%= cl_image_tag @costume.photo.key, crop: :fill if @costume.photo.attached? %>
       <div class="card-product-infos">
@@ -15,8 +15,7 @@
       </div>
     </div>
   </div>
-  <div>
-
+  <div class = "col 6">
     <%= simple_form_for [@costume, @booking] do |f| %>
       <%= f.input :start_date %>
       <%= f.input :end_date %>
