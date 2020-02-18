@@ -13,6 +13,14 @@
           <p>Genre : <%= costume.gender %></p>
           <p>Prix : <%= costume.price %> €/jour</p>
         </div>
+       <div >
+         <%= link_to "Edit", edit_costume_path(costume), class: "btn btn-secondary" %>
+         <%= link_to "Delete",
+            costume_path(costume),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class: "btn btn-danger"  %>
+       </div>
       </div>
     </div>
   </div>
