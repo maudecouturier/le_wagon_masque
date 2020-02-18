@@ -11,6 +11,7 @@ class CostumesController < ApplicationController
   def show
     @bookings = Booking.where(costume: @costume)
     @reviews = []
+    @booking = Booking.new
     @bookings.each do |booking|
       @reviews << Review.find_by(booking: booking)
     end
