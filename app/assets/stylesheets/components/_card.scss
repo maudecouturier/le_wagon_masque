@@ -1,7 +1,7 @@
 // Card GRID
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
 }
 
@@ -36,11 +36,11 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
 
-//Costume card
+//INDEX => Costume card
 .card-costume {
   overflow: hidden;
   background: white;
@@ -59,6 +59,11 @@
   margin: 0;
 }
 
+.card-costume a {
+  text-decoration: none;
+  color: black;
+}
+
 .card-costume p {
   font-size: 12px;
   opacity: .7;
@@ -68,10 +73,41 @@
 
 .card-costume .card-costume-infos {
   padding: 16px;
-  display: flex;
-  justify-content: space-between;
   align-items: flex-end;
-  position: relative;
 }
 
+//SHOW => Product card
+
+.card-product {
+  overflow: hidden;
+  height: 500px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-product img {
+  height: 100%;
+  width: 50%;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
 
