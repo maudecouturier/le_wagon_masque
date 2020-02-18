@@ -1,0 +1,10 @@
+<%= simple_form_for(@costume) do |f| %>
+  <%= f.input :description %>
+  <%= f.input :gender %>
+  <%= f.input :size %>
+  <%= f.input :theme %>
+  <%= f.input :location %>
+  <%= f.input :price %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit %>
+<% end %>
