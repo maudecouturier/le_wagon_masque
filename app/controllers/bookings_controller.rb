@@ -8,6 +8,10 @@ class BookingsController < ApplicationController
   def show
   end
 
+  def my_bookings
+    @my_bookings = Booking.where(user: current_user)
+  end
+
   def new
     @booking = Booking.new
   end

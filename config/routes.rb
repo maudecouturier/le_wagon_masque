@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'costumes#index'
   resources :costumes
   get '/my_costumes', to: 'costumes#my_costumes'
+  get '/my_bookings', to: 'bookings#my_bookings'
   resources :bookings do
     resources :reviews, only: [:new, :create, :destroy]
   end
