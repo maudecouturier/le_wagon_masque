@@ -1,0 +1,25 @@
+<div class="row">
+  <h1>Costumes #index</h1>
+</div>
+
+<div class="row">
+  <div class="cards">
+    <% @costumes.each do |costume| %>
+      <div class="card-costume">
+        <%= cl_image_tag costume.photo.key, crop: :fill if costume.photo.attached? %>
+        <div class="card-costume-infos">
+          <div>
+            <h2><%= link_to costume.description, costume_path(costume) %></h2>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p><%= costume.theme %></p>
+            <h2 class="card-trip-pricing"><%= costume.price %> €/jour</h2>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>
+
