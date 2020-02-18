@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'costumes#index'
-  resources :costumes, except: [:index]
+  resources :costumes
   resources :bookings do
     resources :reviews, only: [:new, :create, :destroy]
   end
