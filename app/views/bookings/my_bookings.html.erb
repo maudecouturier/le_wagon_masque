@@ -13,11 +13,30 @@
           <p>End date : <%= booking.end_date %></p>
         </div>
         <div>
-          <h3>Add a review</h3>
-
-
+          <% if booking.review != nil %>
+            <h3>Your review</h3>
+            <p>Rating : <%= booking.review.rating %></p>
+            <p><%= booking.review.content %></p>
+            <%= link_to review_path(booking.review),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" }  do %>
+            <i class="fas fa-trash-alt"></i>
+            <% end %>
+            <%= link_to review_path(booking.review) do %>
+            <i class="fas fa-trash-alt"></i>
+            <% end %>
+          <% else %>
+            <h3>Add a review</h3>
+            <%= simple_form_for [booking, @review] do |f| %>
+              <%= f.input :booking_id, as: :hidden, input_html: {value: booking.id} %>
+              <%= f.input :rating, collection: Review::RATINGS %>
+              <%= f.input :content %>
+              <%= f.submit %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 <% end %>
+

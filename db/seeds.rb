@@ -1,5 +1,6 @@
 # require "open-uri"
 puts "Drop database..."
+Review.destroy_all
 Booking.destroy_all
 Costume.destroy_all
 User.destroy_all
@@ -34,4 +35,5 @@ puts "Creating bookings..."
 booking_1 = Booking.create!(user: charles, costume: pirate)
 booking_2 = Booking.create!(user: jeanne, costume: mouton)
 booking_3 = Booking.create!(user: lea, costume: wagon)
+booking_4 = Booking.create!(user: charles, costume: princesse)
 puts "Bookings created!"

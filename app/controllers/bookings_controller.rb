@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
   end
 
   def my_bookings
+    @review = Review.new
     @my_bookings = Booking.where(user: current_user)
   end
 
