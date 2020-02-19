@@ -4,6 +4,7 @@ require("channels")
 require("turbolinks").start()
 
 import "bootstrap";
+import "./plugins/flatpickr.js"
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
@@ -13,5 +14,4 @@ document.addEventListener('turbolinks:load', () => {
   initUpdateNavbarOnScroll();
   loadDynamicBannerText();
 });
-
 
