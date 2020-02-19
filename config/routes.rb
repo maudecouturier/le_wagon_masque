@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, except: [:new, :create] do
+    member do
+      patch 'cancel'
+    end
     resources :reviews, only: [:new, :create]
   end
 
