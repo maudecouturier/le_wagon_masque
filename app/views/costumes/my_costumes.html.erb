@@ -1,6 +1,6 @@
 <h1 style="padding-left: 7px">🧟‍♀️My costumes🦸🏻‍♂️</h1>
 
-<%= link_to "🧙🏻‍♂️Add a costume", new_costume_path, {:style=>'padding-left: 8px; text-decoration:none; color:grey;'}  %>
+<%= link_to "🧙🏻‍♂️Add costume", new_costume_path, {:style=>'padding-left: 8px; text-decoration:none; color:grey;'}  %>
   <% @my_costumes.each do |costume| %>
     <div class="row align-items-center">
     <div class="col-8">
@@ -10,10 +10,10 @@
           <div class="card-product-infos">
             <h2 style="font-size: 24px"><%= costume.title %></h2>
             <p>Description : <%= costume.description %></p>
-            <p>Catégorie : <%= costume.theme.capitalize %></p>
-            <p>Taille : <%= costume.size %></p>
-            <p>Genre : <%= costume.gender %></p>
-            <p>Prix : <%= costume.price %> €/jour</p>
+            <p>Category : <%= costume.theme.capitalize %></p>
+            <p>Size : <%= costume.size %></p>
+            <p>Gender : <%= costume.gender %></p>
+            <p>Price : <%= costume.price %> €/day</p>
           </div>
          <div class="card-buttons">
            <%= link_to raw('<i class="fas fa-paint-brush"></i> Edit'), edit_costume_path(costume) %>
