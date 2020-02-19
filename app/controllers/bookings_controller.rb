@@ -20,10 +20,11 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking.costume = @costume
     @booking.user = @user
-    if @booking.save
+    @booking.status = "pending"
+    if @booking.save!
       redirect_to bookings_path
     else
-      render :new
+      render "costumes/show/"
     end
   end
 

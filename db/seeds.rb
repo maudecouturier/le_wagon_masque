@@ -35,6 +35,8 @@ wagon = Costume.new(title:"wagon", user: julien, description: "déguisement pour
 wagon.photo.attach(io: file_wagon, filename: 'wagon.jpg', content_type: 'image/jpg')
 wagon.save!
 
+
+
 puts "Costumes created!"
 
 puts "Creating bookings..."
