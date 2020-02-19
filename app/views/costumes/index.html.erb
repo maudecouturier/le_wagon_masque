@@ -1,4 +1,4 @@
-<div class="home-banner">
+<div class="home-banner" style="background-image: url('<%= image_path 'home_banner2.jpg' %>');">
   <h1 class="m-5">
     <span id="banner-typed-text"></span>
   </h1>
@@ -11,7 +11,7 @@
       <% @costumes.each do |costume| %>
         <%= link_to costume_path(costume) do %>
             <div class="card-costume">
-              <%= cl_image_tag costume.photo.key, crop: :fill if costume.photo.attached? %>
+              <%= cl_image_tag costume.photo.key if costume.photo.attached? %>
               <div class="card-costume-infos">
                 <div>
                   <h2><%= costume.description%></h2>
