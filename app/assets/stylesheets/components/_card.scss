@@ -87,6 +87,8 @@
   display: flex;
   align-items: center;
   margin: 8px;
+  border-radius: 5px;
+  position: relative;
 }
 
 .text-align-right {
@@ -98,7 +100,9 @@
 .card-product img {
   height: 100%;
   width: 50%;
-  object-fit: cover;
+  padding: 5px;
+  object-fit: cover !important;
+  object-position: 100% 0;
 }
 
 .card-product h2 {
@@ -116,7 +120,9 @@
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
+  padding: 5px 16px;
+  position: absolute;
+  top: 10px;
 }
 
 //MY BOOKINGS => Booking card
@@ -157,21 +163,59 @@
 // MY BOOKING REQUESTS => Show: my_costumes
 
 .card-booking-requests{
-  display: grid;
-  grid-template-columns: 1;
-  grid-gap: 10px;
   padding: 10px;
   background-color: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   height: 300px;
 }
 
+.card-grid {
+  display: grid;
+  grid-template-columns: 1;
+  grid-gap: 10px;
+}
+
 .card-booking-status {
-  background-color: #F4F4F4;
   padding: 2px;
+  border-radius: 4px;
+  height: 75px;
 }
 
 .card-booking-status ul {
   list-style-type: none;
+  font-size: 12px;
 }
+
+#pending {
+  background-color: rgba(255, 198, 90, 0.3);
+  color: #e6ab22;
+}
+
+#accepted {
+  background-color: #c1ead2;
+  color: #328253;
+}
+
+#denied {
+  background-color: rgba(253, 16, 21, 0.2);
+  color: #b52626;
+}
+
+// MY COSTUMES
+
+.card-buttons {
+  position: absolute;
+  bottom: 8px;
+  right:8px;
+}
+
+.card-buttons a {
+  padding-left: 8px;
+  text-decoration: none;
+  color: #364654;
+  :hover {
+        color: #70879a;
+    }
+}
+
 
