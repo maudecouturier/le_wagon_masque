@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-9">
         <div class="card-booking">
-          <%= cl_image_tag booking.costume.photo.key, crop: :fill if booking.costume.photo.attached? %>
+          <%= cl_image_tag booking.costume.photo.key if booking.costume.photo.attached? %>
           <div class="card-booking-infos">
             <h2><%= booking.costume.description %></h2>
             <p>Start date : <%= booking.start_date %></p>

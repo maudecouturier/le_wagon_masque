@@ -5,7 +5,7 @@
   <%= f.input :size, prompt: "Choose your size", collection: Costume::SIZE %>
   <%= f.input :theme, prompt: "Choose a theme", collection: Costume::THEMES %>
   <%= f.input :location %>
-  <%= f.input :price %>
+  <%= f.input :price, placeholder: "Price per day" %>
   <%= f.input :photo, as: :file %>
   <%= f.submit %>
 <% end %>
