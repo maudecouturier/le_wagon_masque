@@ -90,7 +90,9 @@
 .card-product img {
   height: 100%;
   width: 50%;
-  object-fit: cover;
+  padding: 5px;
+  object-fit: cover !important;
+  object-position: 100% 0;
 }
 
 .card-product h2 {
@@ -109,7 +111,9 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+
 }
+
 
 //MY BOOKINGS => Booking card
 
@@ -145,4 +149,6 @@
 .card-booking .card-booking-infos {
   padding: 16px;
 }
+
+
 

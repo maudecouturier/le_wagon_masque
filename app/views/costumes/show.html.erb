@@ -3,10 +3,10 @@
 </div>
 
 <div class="row">
-  <div class="col-6">
+  <div class="col-8">
     <div class="card-product">
-      <%= cl_image_tag @costume.photo.key, crop: :fill if @costume.photo.attached? %>
-      <div class="card-product-infos">
+      <%= cl_image_tag @costume.photo.key if @costume.photo.attached? %>
+      <div class="flex-grow card-product-infos">
         <h2><%= @costume.description %></h2>
         <p>Catégorie : <%= @costume.theme %></p>
         <p>Taille : <%= @costume.size %></p>
@@ -15,12 +15,14 @@
       </div>
     </div>
   </div>
-  <div class = "col 6">
+  <div class = "col 3">
+    <h3>Je réserve :</h3>
     <%= simple_form_for [@costume, @booking] do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-      <%= f.button :submit %>
+      <%= f.input :start_date, label: "Du:", placeholder: "Select Date..", as: :string, required: false, input_html: {class: "datepicker"}%>
+      <%=f.input :end_date, label: "au:",placeholder: "Select Date..", as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "je me déguise", class: "btn btn-primary" %>
     <% end %>
+
   </div>
 </div>
 
