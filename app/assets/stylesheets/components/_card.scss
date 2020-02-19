@@ -72,7 +72,7 @@
 
 
 .card-costume .card-costume-infos {
-  padding: 16px;
+  padding: 0px;
   align-items: flex-end;
 }
 
@@ -86,6 +86,8 @@
   display: flex;
   align-items: center;
   margin: 8px;
+  border-radius: 5px;
+  position: relative;
 }
 
 .text-align-right {
@@ -97,7 +99,8 @@
 .card-product img {
   height: 100%;
   width: 50%;
-  object-fit: cover;
+  padding: 5px;
+  // object-fit: cover; pas besoin car c'est déjà dans le CL image
 }
 
 .card-product h2 {
@@ -115,7 +118,9 @@
 }
 
 .card-product .card-product-infos {
-  padding: 16px;
+  padding: 5px 16px;
+  position: absolute;
+  top: 10px;
 }
 
 //MY BOOKINGS => Booking card
@@ -173,4 +178,22 @@
 .card-booking-status ul {
   list-style-type: none;
 }
+
+// MY COSTUMES
+
+.card-buttons {
+  position: absolute;
+  bottom: 8px;
+  right:8px;
+}
+
+.card-buttons a {
+  padding-left: 8px;
+  text-decoration: none;
+  color: #364654;
+  :hover {
+        color: #70879a;
+    }
+}
+
 

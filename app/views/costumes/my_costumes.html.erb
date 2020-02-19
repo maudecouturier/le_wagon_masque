@@ -1,25 +1,28 @@
-<h1>My costumes</h1>
+<h1 style="padding-left: 7px">🧟‍♀️My costumes🦸🏻‍♂️</h1>
 
-<%= link_to "Add a costume", new_costume_path  %>
+<%= link_to "🧙🏻‍♂️Add a costume", new_costume_path, {:style=>'padding-left: 8px; text-decoration:none; color:grey;'}  %>
   <% @my_costumes.each do |costume| %>
     <div class="row align-items-center">
     <div class="col-8">
       <div class="card-product">
         <%= cl_image_tag costume.photo.key, crop: :fill if costume.photo.attached? %>
-        <div class="card-product-infos">
-          <h2><%= costume.description %></h2>
-          <p>Catégorie : <%= costume.theme %></p>
-          <p>Taille : <%= costume.size %></p>
-          <p>Genre : <%= costume.gender %></p>
-          <p>Prix : <%= costume.price %> €/jour</p>
-        </div>
-       <div >
-         <%= link_to "Edit", edit_costume_path(costume), class: "btn btn-secondary" %>
-         <%= link_to "Delete",
-            costume_path(costume),
-            method: :delete,
-            data: { confirm: "Are you sure?" },
-            class: "btn btn-danger"  %>
+        <div class="card-infos-btn d-flex flex-column">
+          <div class="card-product-infos">
+            <h2 style="font-size: 24px"><%= costume.title %></h2>
+            <p>Description : <%= costume.description %></p>
+            <p>Catégorie : <%= costume.theme.capitalize %></p>
+            <p>Taille : <%= costume.size %></p>
+            <p>Genre : <%= costume.gender %></p>
+            <p>Prix : <%= costume.price %> €/jour</p>
+          </div>
+         <div class="card-buttons">
+           <%= link_to raw('<i class="fas fa-paint-brush"></i> Edit'), edit_costume_path(costume) %>
+           <%= link_to raw('<i class="fas fa-skull"></i> Delete'),
+              costume_path(costume),
+              method: :delete,
+              data: { confirm: "Are you sure?" }
+              %>
+         </div>
        </div>
       </div>
     </div>
