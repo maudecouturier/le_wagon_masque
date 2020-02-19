@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   resources :bookings, except: [:new, :create] do
     member do
-      patch 'cancel'
+      get 'cancel'
+      get 'approve'
+      get 'deny'
     end
     resources :reviews, only: [:new, :create]
   end

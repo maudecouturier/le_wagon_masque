@@ -33,10 +33,24 @@
             <ul class="p-1"> Pending:
             <% costume.bookings.select do |booking|  %>
               <% if booking.status == 'pending' %>
-                <li>
-                  <%= booking.start_date %> -
-                  <%= booking.end_date %>
-                </li>
+                <div class="d-flex ">
+                  <li>
+                    <%= booking.start_date %> -
+                    <%= booking.end_date %>
+                  </li>
+                  <div class="d-flex">
+                    <div class="pl-2">
+                      <%= link_to approve_booking_path(booking), remote: true, data: { turbolinks: false } do %>
+                      <i class="fas fa-check"></i>
+                      <% end %>
+                    </div>
+                    <div class="px-2">
+                      <%= link_to deny_booking_path(booking), remote: true, data: { turbolinks: false } do %>
+                      <i class="fas fa-window-close"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
               <% end %>
             </ul>
             <% end %>
@@ -45,10 +59,19 @@
             <ul class="p-1"> Approved:
             <% costume.bookings.select do |booking|  %>
               <% if booking.status == 'approved' %>
-                <li>
-                  <%= booking.start_date %> -
-                  <%= booking.end_date %>
-                </li>
+              <div class="d-flex">
+                <div>
+                  <li>
+                    <%= booking.start_date %> -
+                    <%= booking.end_date %>
+                  </li>
+                </div>
+                <div class="px-2">
+                  <%= link_to deny_booking_path(booking), remote: true, data: { turbolinks: false } do %>
+                  <i class="fas fa-window-close"></i>
+                  <% end %>
+                </div>
+              </div>
               <% end %>
             </ul>
             <% end %>
@@ -57,10 +80,19 @@
             <ul class="p-1"> Denied:
             <% costume.bookings.select do |booking|  %>
               <% if booking.status == 'denied' %>
-                <li>
-                  <%= booking.start_date %> -
-                  <%= booking.end_date %>
-                </li>
+                <div class="d-flex">
+                  <div>
+                    <li>
+                      <%= booking.start_date %> -
+                      <%= booking.end_date %>
+                    </li>
+                  </div>
+                  <div class="px-2">
+                    <%= link_to approve_booking_path(booking), remote: true, data: { turbolinks: false } do %>
+                    <i class="fas fa-check"></i>
+                    <% end %>
+                  </div>
+                </div>
               <% end %>
             </ul>
             <% end %>
