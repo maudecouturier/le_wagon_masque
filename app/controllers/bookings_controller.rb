@@ -20,6 +20,7 @@ class BookingsController < ApplicationController
     @user = current_user
     @booking.costume = @costume
     @booking.user = @user
+    @booking.status = "pending"
     if @booking.save!
       redirect_to bookings_path
     else
