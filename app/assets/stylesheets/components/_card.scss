@@ -100,7 +100,8 @@
   height: 100%;
   width: 50%;
   padding: 5px;
-  // object-fit: cover; pas besoin car c'est déjà dans le CL image
+  object-fit: cover !important;
+  object-position: 100% 0;
 }
 
 .card-product h2 {
