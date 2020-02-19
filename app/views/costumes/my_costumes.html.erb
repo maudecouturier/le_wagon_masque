@@ -27,49 +27,80 @@
              </div>
            </div>
           </div>
-        </div>
-      <div class="card-booking-requests col-4">
-        <h6>Booking requests</h6>
-        <div class="card-grid" text>
-            <div class="card-booking-status" id="pending">
-              <ul class="p-1"> Pending:
-              <% costume.bookings.select do |booking|  %>
-                <% if booking.status == 'pending' %>
+         </div> 
+    <div class="card-booking-requests col-4">
+      <h6>Booking requests</h6>
+      <div class="card-grid" text>
+          <div class="card-booking-status" id="pending">
+            <ul class="p-1"> Pending:
+            <% costume.bookings.select do |booking|  %>
+              <% if booking.status == 'pending' %>
+                <div class="d-flex ">
                   <li>
                     <%= booking.start_date %> -
                     <%= booking.end_date %>
                   </li>
-                <% end %>
-              </ul>
+                  <div class="d-flex">
+                    <div class="pl-2">
+                      <%= link_to approve_booking_path(booking), remote: true, data: { turbolinks: false } do %>
+                      <i class="fas fa-check"></i>
+                      <% end %>
+                    </div>
+                    <div class="px-2">
+                      <%= link_to deny_booking_path(booking), remote: true, data: { turbolinks: false } do %>
+                      <i class="fas fa-window-close"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
               <% end %>
-            </div>
-            <div class="card-booking-status" id="accepted">
-              <ul class="p-1"> Approved:
-              <% costume.bookings.select do |booking|  %>
-                <% if booking.status == 'approved' %>
+            </ul>
+            <% end %>
+          </div>
+          <div class="card-booking-status" id="accepted">
+            <ul class="p-1"> Approved:
+            <% costume.bookings.select do |booking|  %>
+              <% if booking.status == 'approved' %>
+              <div class="d-flex">
+                <div>
                   <li>
                     <%= booking.start_date %> -
                     <%= booking.end_date %>
                   </li>
+                </div>
+                <div class="px-2">
+                  <%= link_to deny_booking_path(booking), remote: true, data: { turbolinks: false } do %>
+                  <i class="fas fa-window-close"></i>
+                  <% end %>
+                </div>
+              </div>
+              <% end %>
+            </ul>
+            <% end %>
+          </div>
+          <div class="card-booking-status" id="denied">
+            <ul class="p-1"> Denied:
+            <% costume.bookings.select do |booking|  %>
+              <% if booking.status == 'denied' %>
+                <div class="d-flex">
+                  <div>
+                    <li>
+                      <%= booking.start_date %> -
+                      <%= booking.end_date %>
+                    </li>
+                  </div>
+                  <div class="px-2">
+                    <%= link_to approve_booking_path(booking), remote: true, data: { turbolinks: false } do %>
+                    <i class="fas fa-check"></i>
+                    <% end %>
+                  </div>
+                </div>
                 <% end %>
               </ul>
-              <% end %>
+             <% end %>
             </div>
-            <div class="card-booking-status" id="denied">
-              <ul class="p-1"> Denied:
-              <% costume.bookings.select do |booking|  %>
-                <% if booking.status == 'denied' %>
-                  <li>
-                    <%= booking.start_date %> -
-                    <%= booking.end_date %>
-                  </li>
-                <% end %>
-              </ul>
-              <% end %>
-            </div>
-        </div>
-
-      </div>
-    </div>
+           </div>
+          </div>
+         </div>
       <% end %>
 </div>

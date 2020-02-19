@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy, :update_status_to_denied!, :cancel, :udpate_status_to_approved!]
+  before_action :set_booking, only: [:show, :edit, :update, :destroy, :deny, :cancel, :approve]
 
   def index
     @review = Review.new
@@ -39,16 +39,19 @@ class BookingsController < ApplicationController
     end
   end
 
-  # def udpate_status_to_approved!
-  #   @booking.update(status: 'approved')
-  # end
+  def approve
+    @booking.update(status: 'approved')
+    redirect_to my_costumes_path
+  end
 
-  # def update_status_to_denied!
-  #   @booking.update(status: 'denied')
-  # end
+  def deny
+    @booking.update(status: 'denied')
+    redirect_to my_costumes_path
+  end
 
   def cancel
     @booking.update(status: 'cancelled')
+    redirect_to bookings_path
   end
 
   def destroy
