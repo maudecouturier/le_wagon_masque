@@ -3,6 +3,7 @@
 </div>
 
 <% @bookings.each do |booking| %>
+  <% if booking.status != 'cancelled' %>
   <div class="row">
     <div class="col-9">
       <div class="card-booking">
@@ -33,7 +34,8 @@
           <% end %>
         </div>
       </div>
-        <%= link_to "Delete", booking_path(booking), method: :delete, data: { confirm: "Are you sure?" }%>
+        <%= link_to "Cancel", cancel_booking_path(booking), method: :patch%>
     </div>
   </div>
+  <% end %>
 <% end %>

@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :costume
   has_one :review, dependent: :destroy
-  validates :status, inclusion: { in: %w(approved pending denied),
+  validates :status, inclusion: { in: %w(approved pending denied cancelled),
     message: "Not a valid status" }
   validates :start_date, :end_date, presence: true
   # validates :end_date, presence: true, date: { after_or_equal_to:  :start_date}
