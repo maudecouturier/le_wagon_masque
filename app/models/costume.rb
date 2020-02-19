@@ -9,4 +9,7 @@ class Costume < ApplicationRecord
   validates :theme, :inclusion=> { :in => THEMES }
   validates :size, :inclusion=> { :in => SIZE }
   validates :gender, :inclusion=> { :in => GENDER }
+
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 end
