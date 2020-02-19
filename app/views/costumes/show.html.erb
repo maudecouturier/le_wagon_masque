@@ -1,26 +1,28 @@
-<div class="row">
-  <h2><%= @costume.description %></h2>
-</div>
+<div class="container main_container my-4">
+  <div class="row">
+    <h2><%= @costume.description %></h2>
+  </div>
 
-<div class="row">
-  <div class="col-6">
-    <div class="card-product">
-      <%= cl_image_tag @costume.photo.key, crop: :fill if @costume.photo.attached? %>
-      <div class="card-product-infos">
-        <h2><%= @costume.description %></h2>
-        <p>Catégorie : <%= @costume.theme %></p>
-        <p>Taille : <%= @costume.size %></p>
-        <p>Genre : <%= @costume.gender %></p>
-        <p>Prix : <%= @costume.price %> €/jour</p>
+  <div class="row">
+    <div class="col-6">
+      <div class="card-product">
+        <%= cl_image_tag @costume.photo.key, crop: :fill if @costume.photo.attached? %>
+        <div class="card-product-infos">
+          <h2><%= @costume.description %></h2>
+          <p>Catégorie : <%= @costume.theme %></p>
+          <p>Taille : <%= @costume.size %></p>
+          <p>Genre : <%= @costume.gender %></p>
+          <p>Prix : <%= @costume.price %> €/jour</p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class = "col 6">
-    <%= simple_form_for [@costume, @booking] do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-      <%= f.button :submit %>
-    <% end %>
+    <div class = "col 6">
+      <%= simple_form_for [@costume, @booking] do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
   </div>
 </div>
 
