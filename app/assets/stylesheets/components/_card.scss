@@ -48,7 +48,7 @@
 }
 
 .card-costume > img {
-  height: 200px;
+  height: 300px;
   width: 100%;
   object-fit: cover;
 }
@@ -72,7 +72,8 @@
 
 
 .card-costume .card-costume-infos {
-  padding: 0px;
+  background-color: rgb(230,230,230);
+  padding: 16px;
   align-items: flex-end;
 }
 
