@@ -1,26 +1,30 @@
-<div class="row">
-  <h2><%= @costume.description %></h2>
-</div>
 
 <div class="row">
+  <h2 style="padding-left: 20px;"><%= "Costume: #{@costume.title.capitalize}"%></h2>
+</div>
+
+<div class="row align-items-center">
   <div class="col-8">
     <div class="card-product">
       <%= cl_image_tag @costume.photo.key if @costume.photo.attached? %>
-      <div class="flex-grow card-product-infos">
-        <h2><%= @costume.description %></h2>
-        <p>Catégorie : <%= @costume.theme %></p>
-        <p>Taille : <%= @costume.size %></p>
-        <p>Genre : <%= @costume.gender %></p>
-        <p>Prix : <%= @costume.price %> €/jour</p>
+      <div class="card-infos-btn d-flex flex-column">
+        <div class="card-product-infos">
+          <h2 style="font-size: 24px; padding-bottom: 10px;"><%= @costume.title.capitalize %></h2>
+          <p>Description : <%= @costume.description %></p>
+          <p>Category : <%= @costume.theme.capitalize %></p>
+          <p>Size : <%= @costume.size %></p>
+          <p>Gender : <%= @costume.gender %></p>
+          <p>Price : <%= @costume.price %> €/day</p>
+        </div>
       </div>
     </div>
   </div>
   <div class = "col 3">
-    <h3>Je réserve :</h3>
+    <h3>Let's book !</h3>
     <%= simple_form_for [@costume, @booking] do |f| %>
-      <%= f.input :start_date, label: "Du:", placeholder: "Select Date..", as: :string, required: false, input_html: {class: "datepicker"}%>
-      <%=f.input :end_date, label: "au:",placeholder: "Select Date..", as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.button :submit, "je me déguise", class: "btn btn-primary" %>
+      <%= f.input :start_date, label: "Start date:", placeholder: "Select date...", as: :string, required: false, input_html: {class: "datepicker"}%>
+      <%=f.input :end_date, label: "End date:",placeholder: "Select date...", as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Go 👻", class: "btn btn-primary" %>
     <% end %>
 
   </div>
