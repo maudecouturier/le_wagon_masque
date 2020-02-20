@@ -5,29 +5,35 @@
   </p>
 </div>
 
+
+
 <div class="container main_container my-4">
+
   <div class="row my-4" style= "position: relative;">
     <div class=col-7>
-      <div class="cards">
+      <div class="cards" name='cards-grid'>
+
         <% @costumes.each do |costume| %>
-          <%= link_to costume_path(costume) do %>
+          <%= link_to costume_path(costume), class: "card-links" do %>
+
               <div class="card-costume">
-                <%= cl_image_tag costume.photo.key if costume.photo.attached? %>
+                <div class="image">
+                  <%= cl_image_tag costume.photo.key, class: 'card-costume-image' if costume.photo.attached? %>
+                  <h6 class="card-trip-pricing text-black"><%= costume.price %>€</h6>
+                </div>
+
                 <div class="card-costume-infos">
                   <div>
-                    <h2><%= costume.description%></h2>
-                  </div>
-                  <div class="d-flex justify-content-between">
-                    <p><%= costume.theme %></p>
-                    <h2 class="card-trip-pricing"><%= costume.price %> €/jour</h2>
+                    <h6><%= costume.title.capitalize%></h6>
                   </div>
                 </div>
               </div>
+
           <% end %>
         <% end %>
-
       </div>
     </div>
+
     <div class="col-5">
       <div id="map"
        style="width: 100%;
@@ -37,8 +43,7 @@
        </div>
     </div>
 
-
-
   </div>
+
 </div>
 

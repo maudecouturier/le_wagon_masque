@@ -1,0 +1,7 @@
+<%= simple_form_for(@costume) do |f| %>
+  <%= f.input :title, label: false, placeholder: "Title" %>
+  <%= f.input :location, label: false, placeholder: "Location" %>
+  <%= f.input :price, label: false, placeholder: "Price per day" %>
+  <%= f.input :photo, as: :file, label: false %>
+  <%= f.button :submit, class: "btn btn-danger text-center" %>
+<% end %>

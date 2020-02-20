@@ -2,6 +2,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("turbolinks").start()
 require("channels")
+require("flatpickr/dist/themes/material_red.css")
 
 import "bootstrap";
 import flatpickr from "flatpickr";
