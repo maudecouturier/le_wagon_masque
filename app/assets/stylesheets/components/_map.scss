@@ -1,0 +1,28 @@
+.mapboxgl-popup {
+  max-width: 100px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  padding: 15px;
+  p {
+    margin: 0;
+  }
+}
+
+.mapboxgl-content-image {
+  max-width: 50px;
+}
+
+.marker {
+  background-image: url('https://res.cloudinary.com/dkybxjjy2/image/upload/v1582208096/map_icon_rn3jwc.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 45px;
+  height: 45px;
+  top: -20px;
+  left: 9px;
+  cursor: pointer;
+
+}
