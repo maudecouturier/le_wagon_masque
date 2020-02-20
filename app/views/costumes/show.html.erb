@@ -7,8 +7,9 @@
       <div class="h-50" style="margin-top:20px">
         <h2>I want to be a <%= @costume.title %> !</h2>
         <%= simple_form_for [@costume, @booking] do |f| %>
-          <%= f.input :start_date, label: "Start date:", placeholder: "Select date...", as: :string, required: false, input_html: {class: "datepicker"}%>
-          <%=f.input :end_date, label: "End date:",placeholder: "Select date...", as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.input :start_date, label: "Start date:", placeholder: "📅 Select date...", as: :string, required: false, input_html: {class: "datepicker input-group"}%>
+          <a class="input-btn" data-toggle><i class="icon-calendar"></i></a>
+         <%=f.input :end_date, label: "End date:",placeholder: "📅  Select date...", as: :string, required: false, input_html: {class: "datepicker"} %>
           <%= f.button :submit, "Go 👻", class: "btn btn-primary" %>
         <% end %>
       </div>
@@ -22,7 +23,6 @@
         </div>
           <span style="padding: 10px" > <i class="fas fa-info-circle"></i> <%= "#{@costume.description}" %></span
       </div>
-
   </div>
 </div>
 </div>

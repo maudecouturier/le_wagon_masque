@@ -1,5 +1,5 @@
 <%= simple_form_for(@costume) do |f| %>
-  <%= f.input :title %>
+  <%= f.input :title, label: false, placeholder: "Title" %>
   <%= f.input :description %>
   <%= f.input :gender, prompt: "Choose your gender",collection: Costume::GENDER %>
   <%= f.input :size, prompt: "Choose your size", collection: Costume::SIZE %>
