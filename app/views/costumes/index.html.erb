@@ -19,12 +19,12 @@
             <div class="card-costume">
               <div class="image">
                 <%= cl_image_tag costume.photo.key, class: 'card-costume-image' if costume.photo.attached? %>
-                <h6 class="card-trip-pricing text-black"><%= costume.price %>€</h6>
+                <p class="card-trip-pricing text-black"><%= costume.price %>€</p>
               </div>
 
               <div class="card-costume-infos">
                 <div>
-                  <h6><%= costume.title.capitalize%></h6>
+                  <p><%= costume.title.capitalize%></p>
                 </div>
               </div>
             </div>
