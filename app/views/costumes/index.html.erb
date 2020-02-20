@@ -3,6 +3,7 @@
   <div class="container main_container">
     <div class="row" style= "position: relative;">
       <div class=col-7>
+
         <div class="cards" name='cards-grid'>
           <% @costumes.each do |costume| %>
             <%= link_to costume_path(costume), class: "card-links" do %>

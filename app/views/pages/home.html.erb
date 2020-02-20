@@ -1,6 +1,18 @@
 <div class="home-banner" style="background-image: url('<%= image_path 'home_banner3.jpg' %>');">
-  <h1 class="m-5">
+  <h1 class = "typed">
     <span id="banner-typed-text"></span>
   </h1>
   </p>
+
+  <div class="card-home">
+    <p style="font-size: 18px">Find your awesome costume</p>
+    <%= form_tag costumes_path, method: :get, class: "form-inline" do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Keyword"
+      %>
+      <%= submit_tag "🔎", class: "btn btn-danger form-control" %>
+    <% end %>
+  </div>
 </div>
