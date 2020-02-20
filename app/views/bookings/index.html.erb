@@ -8,15 +8,17 @@
   <% @bookings.each do |booking| %>
     <% if booking.status != 'cancelled' %>
       <div class="row">
-        <div class="col-9">
-          <div class="card-booking">
-            <%= cl_image_tag booking.costume.photo.key if booking.costume.photo.attached? %>
-            <div class="card-booking-infos flex-grow-1">
-              <h2><%= booking.costume.description %></h2>
+        <div class="card-booking">
+          <%= cl_image_tag booking.costume.photo.key if booking.costume.photo.attached? %>
+          <div class="col-9 h-100 d-flex flex-column">
+            <div class="card-booking-infos d-flex justify-content-between">
+              <h1><%= booking.costume.title %></h1>
+              <div class="d-flex flex-column">
               <p>Start date : <%= booking.start_date %></p>
               <p>End date : <%= booking.end_date %></p>
+              </div>
             </div>
-            <div class="p-4 border-left h-100 bg-light">
+            <div class="card-booking-infos d-flex flex-column justify-content-around">
               <% if booking.review != nil %>
                 <h4>Your review</h4>
                 <p>Rating : <%= booking.review.rating %></p>
@@ -29,16 +31,24 @@
               <% else %>
                 <h4>Add a review</h4>
                 <%= simple_form_for [booking, @review] do |f| %>
-                  <%= f.input :booking_id, as: :hidden, input_html: {value: booking.id} %>
-                  <%= f.input :rating, collection: Review::RATINGS %>
-                  <%= f.input :content %>
-                  <%= f.submit %>
+                <div class="d-flex py-4">
+                    <%= f.input :booking_id, as: :hidden, input_html: {value: booking.id} %>
+                  <div style="width: 100px; margin-right: 5px">
+                    <%= f.input :rating, collection: Review::RATINGS, label: false %>
+                  </div>
+                  <div class="flex-grow-1" style="margin-right: 5px">
+                    <%= f.input :content, placeholder: "It was amazing! 🥳", as: :string, label: false %>
+                  </div>
+                  <div style="padding:5px">
+                    <%= f.submit "Post my review" %>
+                  </div>
+                </div>
                 <% end %>
+              </div>
               <% end %>
             </div>
           </div>
           <%= link_to "Cancel", cancel_booking_path(booking), remote: true, data: { turbolinks: false } %>
-        </div>
       </div>
     <% end %>
   <% end %>
