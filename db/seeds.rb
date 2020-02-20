@@ -35,6 +35,21 @@ wagon = Costume.new(title:"wagon", user: julien, description: "déguisement pour
 wagon.photo.attach(io: file_wagon, filename: 'wagon.jpg', content_type: 'image/jpg')
 wagon.save!
 
+file_casapapel = URI.open("https://unsplash.com/photos/keKiFQa3T2w")
+casapapel = Costume.new(title:"Braqueur de banque", user: julien, description: "Casa de papel", location: "Paris", price: 30, size: "M", gender: "M", theme: "pirates")
+casapapel.photo.attach(io: file_casapapel, filename: 'casapapel.jpg')
+casapapel.save!
+
+
+
+
+
+
+
+
+
+
+
 
 
 puts "Costumes created!"
