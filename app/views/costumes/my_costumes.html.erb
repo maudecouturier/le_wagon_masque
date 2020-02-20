@@ -4,10 +4,11 @@
       <h5 class='mt-5 mb-4'>Pending:</h5>
       <div class="bookings-container col-8">
         <% @my_costumes.each do |costume| %>
-          <div class='booking d-flex'>
 
             <% costume.bookings.each do |booking| %>
               <% if booking.status == 'pending' %>
+          <div class='booking d-flex'>
+
                 <div class="d-flex justify-content-between">
                   <li class="list-unstyled">
                     <%= booking.start_date %> -
@@ -22,9 +23,10 @@
                       <% end %>
                   </div>
                 </div>
+
+          </div>
               <% end %>
             <% end %>
-          </div>
         <% end %>
       </div>
 
