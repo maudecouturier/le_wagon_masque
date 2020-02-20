@@ -1,0 +1,19 @@
+input[type=file]::-webkit-file-upload-button {
+  color: $red;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: none;
+  transition: background 0.3s ease;
+  width: 100%;
+  font-family: $my-font;
+}
+
+.btn-danger {
+  width: 100%;
+  border-radius: 4px;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  font-family: $my-font;
+}
