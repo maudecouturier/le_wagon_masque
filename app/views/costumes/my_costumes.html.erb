@@ -1,112 +1,44 @@
 <div class="container main_container my-4">
+  <div class="pb-5" name="upper-part-booking-requests">
+    <h3>My bookings</h3>
+      <h5 class='mt-5 mb-4'>Pending:</h5>
+      <div class="bookings-container col-8">
+        <% @my_costumes.each do |costume| %>
+          <div class='booking d-flex'>
 
-  <h1 style="padding-left: 7px">🧟‍♀️My costumes🦸🏻‍♂️</h1>
-
-  <%= link_to "🧙🏻‍♂️Add a costume", new_costume_path, {:style=>'padding-left: 8px; text-decoration:none; color:grey;'}  %>
-    <% @my_costumes.each do |costume| %>
-      <div class="row align-items-center" name="row_costumes_bookings">
-
-        <div class="col-8" name="my-costumes-cards">
-          <div class="card-product">
-            <%= cl_image_tag costume.photo.key %>
-            <div class="card-infos-btn d-flex flex-column">
-              <div class="card-product-infos">
-                <h2 style="font-size: 24px"><%= costume.title %></h2>
-                <p>Description : <%= costume.description %></p>
-                <p>Catégorie : <%= costume.theme.capitalize %></p>
-                <p>Taille : <%= costume.size %></p>
-                <p>Genre : <%= costume.gender %></p>
-                <p>Prix : <%= costume.price %> €/jour</p>
-              </div>
-             <div class="card-buttons">
-               <%= link_to raw('<i class="fas fa-paint-brush"></i> Edit'), edit_costume_path(costume) %>
-               <%= link_to raw('<i class="fas fa-skull"></i> Delete'),
-                  costume_path(costume),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" }
-                  %>
-             </div>
-           </div>
+            <% costume.bookings.each do |booking| %>
+              <% if booking.status == 'pending' %>
+                <div class="d-flex justify-content-between">
+                  <li class="list-unstyled">
+                    <%= booking.start_date %> -
+                    <%= booking.end_date %>
+                  </li>
+                  <div class="d-flex">
+                      <%= link_to approve_booking_path(booking), remote: true, data: { turbolinks: false } do %>
+                      <i class="fas fa-check mx-2 text-white"></i>
+                      <% end %>
+                      <%= link_to deny_booking_path(booking), remote: true, data: { turbolinks: false } do %>
+                      <i class="fas fa-window-close text-white"></i>
+                      <% end %>
+                  </div>
+                </div>
+              <% end %>
+            <% end %>
           </div>
-         </div>
+        <% end %>
+      </div>
 
-        <div class="card-booking-requests col-4" name="my-booking-requests-cards">
-          <h6>Booking requests</h6>
-          <div class="card-grid">
 
-              <div class="card-booking-status" id="pending">
-                <ul class="p-1"> Pending:
-                <% costume.bookings.select do |booking|  %>
-                  <% if booking.status == 'pending' %>
-                    <div class="d-flex ">
-                      <li>
-                        <%= booking.start_date %> -
-                        <%= booking.end_date %>
-                      </li>
-                      <div class="d-flex">
-                        <div class="pl-2">
-                          <%= link_to approve_booking_path(booking), remote: true, data: { turbolinks: false } do %>
-                          <i class="fas fa-check"></i>
-                          <% end %>
-                        </div>
-                        <div class="px-2">
-                          <%= link_to deny_booking_path(booking), remote: true, data: { turbolinks: false } do %>
-                          <i class="fas fa-window-close"></i>
-                          <% end %>
-                        </div>
-                      </div>
-                    </div>
-                  <% end %>
-                </ul>
-                <% end %>
-              </div>
 
-              <div class="card-booking-status" id="approved">
-                <ul class="p-1"> Approved:
-                <% costume.bookings.select do |booking|  %>
-                  <% if booking.status == 'approved' %>
-                    <div class="d-flex ">
-                      <li>
-                        <%= booking.start_date %> -
-                        <%= booking.end_date %>
-                      </li>
-                      <div class="d-flex">
-                        <div class="px-2">
-                          <%= link_to deny_booking_path(booking), remote: true, data: { turbolinks: false } do %>
-                          <i class="fas fa-window-close"></i>
-                          <% end %>
-                        </div>
-                      </div>
-                    </div>
-                  <% end %>
-                <% end %>
-                </ul>
-              </div>
+  </div>
 
-              <div class="card-booking-status" id="denied">
-                <ul class="p-1"> Denied:
-                <% costume.bookings.select do |booking|  %>
-                  <% if booking.status == 'denied' %>
-                    <div class="d-flex ">
-                      <li>
-                        <%= booking.start_date %> -
-                        <%= booking.end_date %>
-                      </li>
-                      <div class="d-flex">
-                        <div class="px-2">
-                          <%= link_to approve_booking_path(booking), remote: true, data: { turbolinks: false } do %>
-                          <i class="fas fa-check"></i>
-                          <% end %>
-                        </div>
-                      </div>
-                    </div>
-                  <% end %>
-                <% end %>
-                </ul>
-              </div>
+  <div>
 
-          </div>
-        </div>
-    </div>
-  <% end %>
+  </div>
+
+
+
 </div>
+
+
+
