@@ -1,37 +1,31 @@
 
 <div class="container main_container my-4">
-
-  <div class="row">
-    <h2 style="padding-left: 20px;"><%= "Costume: #{@costume.title}"%></h2>
-  </div>
-
-  <div class="row align-items-center">
-    <div class="col-8">
-      <div class="card-product">
-        <%= cl_image_tag @costume.photo.key if @costume.photo.attached? %>
-        <div class="card-infos-btn d-flex flex-column">
-          <div class="card-product-infos">
-            <h2 style="font-size: 24px; padding-bottom: 10px;"><%= @costume.title %></h2>
-            <p>Description : <%= @costume.description %></p>
-            <p>Category : <%= @costume.theme.capitalize %></p>
-            <p>Size : <%= @costume.size %></p>
-            <p>Gender : <%= @costume.gender %></p>
-            <p>Price : <%= @costume.price %> €/day</p>
-          </div>
-        </div>
+  <div class="row align-items-center" style="height: 600px; background-color: white; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+    <div class="col-6 h-100" style="background-image:url('<%= cl_image_path @costume.photo.key if @costume.photo.attached? %>'); background-size:contain; background-repeat:no-repeat; background-position: center">
+    </div>
+    <div class="col-6 h-100 d-flex flex-column" style="background-color:#FFEEEE">
+      <div class="h-50" style="margin-top:20px">
+        <h2>I want to be a <%= @costume.title %> !</h2>
+        <%= simple_form_for [@costume, @booking] do |f| %>
+          <%= f.input :start_date, label: "Start date:", placeholder: "📅 Select date...", as: :string, required: false, input_html: {class: "datepicker input-group"}%>
+          <a class="input-btn" data-toggle><i class="icon-calendar"></i></a>
+         <%=f.input :end_date, label: "End date:",placeholder: "📅  Select date...", as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.button :submit, "Go 👻", class: "btn btn-primary" %>
+        <% end %>
       </div>
-    </div>
-    <div class = "col 3">
-      <h3>Let's book !</h3>
-      <%= simple_form_for [@costume, @booking] do |f| %>
-        <%= f.input :start_date, label: "Start date:", placeholder: "📅 Select date...", as: :string, required: false, input_html: {class: "datepicker input-group"}%>
-        <a class="input-btn" data-toggle><i class="icon-calendar"></i></a>
-
-        <%=f.input :end_date, label: "End date:",placeholder: "📅  Select date...", as: :string, required: false, input_html: {class: "datepicker"} %>
-        <%= f.button :submit, "Go 👻", class: "btn btn-primary" %>
-      <% end %>
-    </div>
+      <div class="h-50" style="margin-top:20px">
+        <h2><%= @costume.title.capitalize %></h2>
+        <div class="d-flex justify-content-between">
+          <span style="padding: 10px"> <i class="fas fa-theater-masks"></i> <%= @costume.theme %></span>
+          <span style="padding: 10px"> <i class="far fa-hand-lizard"></i> <%= "size #{@costume.size}" %></span>
+          <span style="padding: 10px"> <i class="fas fa-coins"></i> <%= @costume.price %> €/day</span>
+          <span style="padding: 10px"> <i class="fas fa-map-pin"></i> <%= @costume.location %></span>
+        </div>
+          <span style="padding: 10px" > <i class="fas fa-info-circle"></i> <%= "#{@costume.description}" %></span
+      </div>
   </div>
+</div>
+</div>
 </div>
 
 
