@@ -1,5 +1,5 @@
 const initFlatpicker = () => {
-  flatpickr(".datepicker", {});
+  flatpickr(".datepicker", { dateFormat: 'd/m/Y'});
 }
 
 export { initFlatpicker }

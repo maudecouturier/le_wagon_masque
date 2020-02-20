@@ -24,8 +24,10 @@
     <div class = "col 3">
       <h3>Let's book !</h3>
       <%= simple_form_for [@costume, @booking] do |f| %>
-        <%= f.input :start_date, label: "Start date:", placeholder: "Select date...", as: :string, required: false, input_html: {class: "datepicker"}%>
-        <%=f.input :end_date, label: "End date:",placeholder: "Select date...", as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :start_date, label: "Start date:", placeholder: "📅 Select date...", as: :string, required: false, input_html: {class: "datepicker input-group"}%>
+        <a class="input-btn" data-toggle><i class="icon-calendar"></i></a>
+
+        <%=f.input :end_date, label: "End date:",placeholder: "📅  Select date...", as: :string, required: false, input_html: {class: "datepicker"} %>
         <%= f.button :submit, "Go 👻", class: "btn btn-primary" %>
       <% end %>
     </div>
