@@ -5,13 +5,19 @@ class CostumesController < ApplicationController
 
 
   def index
-    @costumes = Costume.geocoded
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR description ILIKE :query"
+      @costumes = Costume.geocoded.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @costumes = Costume.geocoded
+    end
     @markers = @costumes.map do |costume|
-          {
-            lat: costume.latitude,
-            lng: costume.longitude
-          }
-        end
+      {
+        lat: costume.latitude,
+        lng: costume.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { costume: costume }),
+      }
+    end
   end
 
   def show

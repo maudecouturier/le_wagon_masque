@@ -1,12 +1,20 @@
 input[type=file]::-webkit-file-upload-button {
-  color: $red;
-  padding: 8px 24px;
-  border-radius: 4px;
+  width: 50%;
+  color: white;
   background: none;
-  transition: background 0.3s ease;
-  width: 100%;
-  font-family: $my-font;
+  border-color: white;
 }
+
+
+input[type=file] {
+  position: relative;
+  margin-bottom: 30px;
+  color: white;
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: border-box;
+}
+
+
 
 .btn-danger {
   width: 100%;
@@ -15,5 +23,5 @@ input[type=file]::-webkit-file-upload-button {
   padding: 8px 24px;
   border-radius: 4px;
   transition: background 0.3s ease;
-  font-family: $my-font;
+  cursor: f6fa;
 }

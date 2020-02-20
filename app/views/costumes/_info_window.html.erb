@@ -1,0 +1,9 @@
+<!-- <div style="max-width: 50px">
+  <%= cl_image_tag costume.photo.key if costume.photo.attached? %>
+</div> -->
+<%= link_to costume_path(costume) do  %>
+  <div>
+    <h5><%= costume.title %></h5>
+    <p><%= costume.price %> € / day</p>
+  </div>
+<% end %>

@@ -5,4 +5,22 @@
   color: #eee;
   //text-align: left;
   padding-top: 40vh;
+  position: relative;
+}
+
+.typed {
+  left: 50px;
+  position: absolute;
+  top: 150px;
+}
+
+.card-home {
+  border-radius: 5px;
+  background-color: rgba(0,0,0, 0.5);
+  padding: 25px;
+  width: 23%;
+  justify-content: center;
+  position: absolute;
+  bottom: 200px;
+  left: 50px;
 }

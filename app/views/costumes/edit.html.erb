@@ -1,12 +1,13 @@
-
-<div class="container main_container my-4">
-  <div class="row">
-    <h2><%= @costume.description %></h2>
-  </div>
-
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <%= render "form_edit" %>
+<div class="main_container background-form">
+  <div class= "container">
+    <div class="row justify-content-left">
+      <h1 class = "py-5" style = "color:white "><%= @costume.description %></h1>
+    </div>
+    <div class="row justify-content-left">
+      <div class="col-4">
+        <%= render "form_edit" %>
+      </div>
     </div>
   </div>
 </div>
+

@@ -1,7 +1,8 @@
+
 // Card GRID
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
 
@@ -36,7 +37,7 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -47,7 +48,6 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   text-decoration: none;
   height: 280px;
-  width: 220px;
   border-radius: 4px;
 }
 
@@ -87,24 +87,32 @@
   color: black;
 }
 
+.card-links:hover {
+  color: black;
+  text-decoration: none;
+}
+
+
+.card-costume-infos:hover {
+  color: $red;
+}
+
 //SHOW => Product card
 
 .card-product {
-  overflow: hidden;
-  height: 300px;
+  height: 550px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  margin: 8px;
-  border-radius: 5px;
-  position: relative;
 }
 
-.text-align-right {
-  padding: 16px;
-  align-items: flex-start;
+.calendar {
+  background: #92837f14;
+  border-radius: 5px;
 }
+
+// .text-align-right {
+//   padding: 16px;
+//   align-items: flex-start;
+// }
 
 
 .card-product img {
@@ -117,24 +125,31 @@
   object-position: center top;
 }
 
-.card-product h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
 
-.card-product p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
+// .card-product img {
+//   height: 100%;
+//   width: 50%;
+//   padding: 5px;
+//   object-fit: cover !important;
+//   object-position: 100% 0;
+// }
+
+// .card-product h2 {
+//   font-size: 16px;
+//   font-weight: bold;
+//   margin: 0;
+// }
+
+// .card-product p {
+//   font-size: 12px;
+//   line-height: 1.4;
+//   opacity: .7;
+//   margin-bottom: 0;
+//   margin-top: 8px;
+// }
 
 .card-product .card-product-infos {
-  padding: 5px 16px;
-  position: absolute;
-  top: 10px;
+  margin-top:10px
 }
 
 
@@ -142,12 +157,12 @@
 
 .card-booking {
   overflow: hidden;
-  height: 400px;
+  height: 250px;
+  width: 800px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-
 }
 
 .card-booking img {

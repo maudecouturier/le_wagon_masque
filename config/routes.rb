@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'costumes#index'
+  root to: 'pages#home'
   get '/my_costumes', to: 'costumes#my_costumes'
 
-  resources :costumes, except: [:index] do
+  resources :costumes do
     resources :bookings, only: [:new, :create]
   end
 
