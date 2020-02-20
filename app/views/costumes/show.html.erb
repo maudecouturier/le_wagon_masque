@@ -10,7 +10,7 @@
           <%= simple_form_for [@costume, @booking] do |f| %>
             <%= f.input :start_date, placeholder: "📅 From - next party date", as: :string, required: false, label: false, input_html: {class: "datepicker input-group"}%>
             <%=f.input :end_date, placeholder: "📅 Until - next hungover date", as: :string, required: false, label: false, input_html: {class: "datepicker"} %>
-            <%= f.button :submit, "Book me 👻", class: "btn btn-primary" %>
+            <%= f.button :submit, "Book me 👻", class: "btn btn-danger" %>
           <% end %>
         </div>
       </div>
