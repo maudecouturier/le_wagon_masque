@@ -87,6 +87,16 @@
   color: black;
 }
 
+.card-links:hover {
+  color: black;
+  text-decoration: none;
+}
+
+
+.card-costume-infos:hover {
+  color: $red;
+}
+
 //SHOW => Product card
 
 .card-product {
