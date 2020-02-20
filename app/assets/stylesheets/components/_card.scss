@@ -46,39 +46,40 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   text-decoration: none;
+  height: 280px;
+  width: 220px;
+  border-radius: 4px;
 }
 
-.card-costume > img {
-  height: 300px;
+.image {
+  position: relative;
+}
+.card-costume-image {
   width: 100%;
+  height: 240px;
   object-fit: cover;
+  object-position: center top;
+  position: relative;
+  border-radius: 4px 4px 0px 0px;
 }
 
-.card-costume h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  text-decoration: none;
-}
-
-.card-costume a {
-  text-decoration: none;
-  color: black;
-}
-
-.card-costume p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-  text-decoration: none;
+.card-trip-pricing {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: white;
+  opacity: 0.7;
+  padding: 5px;
+  border-radius: 8px;
+  margin-bottom: 0px !important;
 }
 
 
 .card-costume .card-costume-infos {
-  background-color: rgb(230,230,230);
-  padding: 16px;
-  align-items: flex-end;
+  padding: 12px 16px;
   text-decoration: none;
+  height: 40px;
+  border-radius: 4px;
 }
 
 .card-links {
