@@ -159,6 +159,10 @@
 
 //MY BOOKINGS => Booking card
 
+.booking-title {
+  margin-bottom: 1rem;
+}
+
 .card-booking {
   overflow: hidden;
   height: 250px;
@@ -167,6 +171,8 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 .card-booking img {
@@ -190,7 +196,11 @@
 }
 
 .card-booking .card-booking-infos {
-  padding: 16px;
+  padding: 10px;
+
+}.card-booking .card-booking-review {
+  padding: 10px;
+  justify-content: flex-end;
 }
 
 
