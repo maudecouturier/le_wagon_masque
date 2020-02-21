@@ -19,5 +19,6 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpicker();
   initMapbox();
   initAutocomplete();
+  $('.dropdown-toggle').dropdown();
 });
 
