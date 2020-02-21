@@ -14,8 +14,10 @@
             <div class="card-booking-infos d-flex justify-content-between">
               <h1><%= booking.costume.title %></h1>
               <div class="d-flex flex-column">
-              <p>Start date : <%= booking.start_date %></p>
-              <p>End date : <%= booking.end_date %></p>
+                <p>From : <%= booking.start_date %></p>
+                <p>Until : <%= booking.end_date %></p>
+                <p>Price : <%= (booking.end_date - booking.start_date).to_i*booking.costume.price %> €</p>
+                <%= link_to "Cancel", cancel_booking_path(booking), remote: true, data: { turbolinks: false }, class: "btn" %>
               </div>
             </div>
             <div class="card-booking-infos d-flex flex-column justify-content-around">
@@ -48,7 +50,7 @@
               <% end %>
             </div>
           </div>
-          <%= link_to "Cancel", cancel_booking_path(booking), remote: true, data: { turbolinks: false } %>
+
       </div>
     <% end %>
   <% end %>
