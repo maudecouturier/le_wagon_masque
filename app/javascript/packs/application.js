@@ -21,5 +21,6 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
   priceCalculation();
+  $('.dropdown-toggle').dropdown();
 });
 

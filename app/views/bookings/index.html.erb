@@ -5,7 +5,7 @@
     <h1>My bookings</h1>
   </div>
 
-  <% @bookings.each do |booking| %>
+  <% @bookings.reverse.each do |booking| %>
     <% if booking.status != 'cancelled' %>
       <div class="row">
         <div class="card-booking">

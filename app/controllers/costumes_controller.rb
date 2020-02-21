@@ -41,7 +41,7 @@ class CostumesController < ApplicationController
 
     @costume = Costume.new(costume_params)
     @costume.user = current_user
-    if @costume.save
+    if @costume.save!
       redirect_to my_costumes_path
     else
       render :new
