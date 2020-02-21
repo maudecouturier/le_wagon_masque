@@ -9,8 +9,8 @@
         <div class="calendar p-4">
           <%= simple_form_for [@costume, @booking] do |f| %>
             <%= f.input :start_date, placeholder: "📅 From - next party date", as: :string, required: false, label: false, input_html: {class: "datepicker input-group"}%>
-            <%=f.input :end_date, placeholder: "📅 Until - next hungover date", as: :string, required: false, label: false, input_html: {class: "datepicker"} %>
-            <%= f.button :submit, "Book me 👻", class: "btn btn-danger" %>
+            <%= f.input :end_date, placeholder: "📅 Until - next hungover date", as: :string, required: false, label: false, input_html: {class: "datepicker"} %>
+            <%= f.button :submit, "Book me 👻", class: "btn btn-danger", id: "booking-btn" %>
           <% end %>
         </div>
       </div>
@@ -19,7 +19,7 @@
         <div class="d-flex justify-content-between">
           <span style="padding: 10px"> <i class="fas fa-theater-masks"></i> <%= @costume.theme %></span>
           <span style="padding: 10px"> <i class="far fa-hand-lizard"></i> <%= "size #{@costume.size}" %></span>
-          <span style="padding: 10px"> <i class="fas fa-coins"></i> <%= @costume.price %> €/day</span>
+          <span id="costume-price" data-price="<%= @costume.price %>" style="padding: 10px"> <i class="fas fa-coins"></i> <%= @costume.price %> €/day</span>
         </div>
           <span style="padding: 10px"> <i class="fas fa-map-pin"></i> <%= @costume.location %></span><br><br>
           <span style="padding: 10px" > <i class="fas fa-info-circle"></i> <%= "#{@costume.description}" %></span
