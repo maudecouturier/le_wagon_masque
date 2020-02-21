@@ -15,6 +15,27 @@ puts "Users created!"
 
 puts "Creating costumes..."
 
+
+file_inuit = URI.open("https://images.unsplash.com/photo-1566800450696-93f195ecd77c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
+inuit = Costume.new(title:"inuit", user: lea, location: "rue de Tolbiac", price: 50, size: "L", gender: "F", theme: "other", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+inuit.photo.attach(io: file_inuit, filename: 'inuit.jpg', content_type: 'image/jpg')
+inuit.save!
+
+file_santaclaus = URI.open("https://images.unsplash.com/photo-1577210944468-9a7e75687a54?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
+santaclaus = Costume.new(title:"Sexy Santaclaus", user: jeanne, location: "Villa Gaudelet", price: 45, size: "XS", gender: "M", theme: "fairy-tales", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+santaclaus.photo.attach(io: file_santaclaus, filename: 'santaclaus.jpg', content_type: 'image/jpg')
+santaclaus.save!
+
+file_bunny = URI.open("https://images.unsplash.com/photo-1581661685609-4fb610338a34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
+bunny = Costume.new(title:"bunny", user: julien, location: "40 rue Damremont, Paris", price: 30, size: "M", gender: "F", theme: "fairy-tales", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+bunny.photo.attach(io: file_bunny, filename: 'bunny.jpg', content_type: 'image/jpg')
+bunny.save!
+
+file_baseball = URI.open("https://images.unsplash.com/flagged/photo-1563296412-742dfbae0afe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
+baseball = Costume.new(title:"Baseball", user: julien, location: "Avenue de Clichy, Paris", price: 30, size: "M", gender: "F", theme: "other", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+baseball.photo.attach(io: file_baseball, filename: 'baseball.jpg')
+baseball.save!
+
 file_squelette = URI.open("https://images.unsplash.com/photo-1506364180601-180da27fe1b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
 squelette = Costume.new(title:"Squelette", user: lea, location: "rue de Tolbiac", price: 15, size: "S", gender: "F", theme: "fairy-tales")
 squelette.photo.attach(io: file_squelette, filename: 'squelette.jpg', content_type: 'image/jpg')
@@ -24,6 +45,32 @@ file_muerte = URI.open("https://images.unsplash.com/photo-1509993630589-dbfcf726
 muerte = Costume.new(title:"Dia de los muerte", user: jeanne, location: "Villa Gaudelet", price: 15, size: "XS", gender: "M", theme: "animals")
 muerte.photo.attach(io: file_muerte, filename: 'muerte.jpg', content_type: 'image/jpg')
 muerte.save!
+
+
+file_blood = URI.open("https://images.unsplash.com/photo-1572553043207-2f082dd323a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
+blood = Costume.new(title:"Man covered in blood", user: charles, location: "Paris", price: 20, size: "L", gender: "M", theme: "pirates", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+blood.photo.attach(io: file_blood, filename: 'blood.jpg')
+blood.save!
+
+file_bouddha = URI.open("https://images.unsplash.com/photo-1559109156-e157c790a144?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
+bouddha = Costume.new(title:"Bouddha", user: charles, location: "5 villa Hersent, Paris", price: 25, size: "L", gender: "M", theme: "other", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+bouddha.photo.attach(io: file_bouddha, filename: 'bouddha.jpg')
+bouddha.save!
+
+file_geisha = URI.open("https://images.unsplash.com/photo-1559654759-6b984e5f814e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
+geisha = Costume.new(title:"geisha", user: charles, location: "2 avenue de Saint-Ouen, Paris", price: 50, size: "M", gender: "F", theme: "fairy-tales", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+geisha.photo.attach(io: file_geisha, filename: 'geisha.jpg')
+geisha.save!
+
+file_astronaut = URI.open("https://images.unsplash.com/photo-1478479336189-2148e701dfb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
+astronaut = Costume.new(title:"Astronaut", user: charles, location: "Montmartre, Paris", price: 50, size: "M", gender: "M", theme: "pirates", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+astronaut.photo.attach(io: file_astronaut, filename: 'astronaut.jpg')
+astronaut.save!
+
+file_cow = URI.open("https://images.unsplash.com/photo-1564784670088-4162f94257af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
+cow = Costume.new(title:"Cow", user: charles, location: "Montparnasse, Paris", price: 50, size: "M", gender: "M", theme: "other", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
+cow.photo.attach(io: file_cow, filename: 'cow.jpg')
+cow.save!
 
 file_batman = URI.open("https://images.unsplash.com/photo-1547355332-7c6fcb397868?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
 batman = Costume.new(title:"Batman", user: julien, location: "Champs-Elysées", price: 30, size: "M", gender: "M", theme: "other")
@@ -54,52 +101,6 @@ file_spiderman = URI.open("https://images.unsplash.com/photo-1571781565036-d3f75
 spiderman = Costume.new(title:"Spiderman", user: jeanne, location: "Paris", price: 30, size: "M", gender: "F", theme: "fairy-tales", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
 spiderman.photo.attach(io: file_spiderman, filename: 'spiderman.jpg')
 spiderman.save!
-
-file_blood = URI.open("https://images.unsplash.com/photo-1572553043207-2f082dd323a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
-blood = Costume.new(title:"Man covered in blood", user: charles, location: "Paris", price: 20, size: "L", gender: "M", theme: "pirates", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
-blood.photo.attach(io: file_blood, filename: 'blood.jpg')
-blood.save!
-
-file_astronaut = URI.open("https://images.unsplash.com/photo-1478479336189-2148e701dfb8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
-astronaut = Costume.new(title:"Astronaut", user: charles, location: "Montmartre, Paris", price: 50, size: "M", gender: "M", theme: "pirates", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
-astronaut.photo.attach(io: file_astronaut, filename: 'astronaut.jpg')
-astronaut.save!
-
-file_cow = URI.open("https://images.unsplash.com/photo-1564784670088-4162f94257af?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
-cow = Costume.new(title:"Cow", user: charles, location: "Montparnasse, Paris", price: 50, size: "M", gender: "M", theme: "other", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
-cow.photo.attach(io: file_cow, filename: 'cow.jpg')
-cow.save!
-
-file_bouddha = URI.open("https://images.unsplash.com/photo-1559109156-e157c790a144?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
-bouddha = Costume.new(title:"Bouddha", user: charles, location: "5 villa Hersent, Paris", price: 25, size: "L", gender: "M", theme: "other", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
-bouddha.photo.attach(io: file_bouddha, filename: 'bouddha.jpg')
-bouddha.save!
-
-file_geisha = URI.open("https://images.unsplash.com/photo-1559654759-6b984e5f814e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
-geisha = Costume.new(title:"geisha", user: charles, location: "2 avenue de Saint-Ouen, Paris", price: 50, size: "M", gender: "F", theme: "fairy-tales", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
-geisha.photo.attach(io: file_geisha, filename: 'geisha.jpg')
-geisha.save!
-
-file_inuit = URI.open("https://images.unsplash.com/photo-1566800450696-93f195ecd77c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
-inuit = Costume.new(title:"inuit", user: lea, location: "rue de Tolbiac", price: 50, size: "L", gender: "F", theme: "other", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
-inuit.photo.attach(io: file_inuit, filename: 'inuit.jpg', content_type: 'image/jpg')
-inuit.save!
-
-file_santaclaus = URI.open("https://images.unsplash.com/photo-1577210944468-9a7e75687a54?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
-santaclaus = Costume.new(title:"Sexy Santaclaus", user: jeanne, location: "Villa Gaudelet", price: 45, size: "XS", gender: "M", theme: "fairy-tales", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
-santaclaus.photo.attach(io: file_santaclaus, filename: 'santaclaus.jpg', content_type: 'image/jpg')
-santaclaus.save!
-
-file_bunny = URI.open("https://images.unsplash.com/photo-1581661685609-4fb610338a34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
-bunny = Costume.new(title:"bunny", user: julien, location: "40 rue Damremont, Paris", price: 30, size: "M", gender: "F", theme: "fairy-tales", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
-bunny.photo.attach(io: file_bunny, filename: 'bunny.jpg', content_type: 'image/jpg')
-bunny.save!
-
-file_baseball = URI.open("https://images.unsplash.com/flagged/photo-1563296412-742dfbae0afe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
-baseball = Costume.new(title:"Baseball", user: julien, location: "Avenue de Clichy, Paris", price: 30, size: "M", gender: "F", theme: "other", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.")
-baseball.photo.attach(io: file_baseball, filename: 'baseball.jpg')
-baseball.save!
-
 
 
 
