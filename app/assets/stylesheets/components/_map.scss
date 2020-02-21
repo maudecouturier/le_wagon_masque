@@ -6,8 +6,17 @@
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   padding: 15px;
+
   p {
     margin: 0;
+  }
+  a {
+  text-decoration: none !important;
+  color: $red;
+
+    &:hover {
+      color: #cc2f2d;
+    }
   }
 }
 

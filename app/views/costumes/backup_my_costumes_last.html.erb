@@ -1,0 +1,45 @@
+
+<div class="container container_mycostumes">
+      <h3 class="mb-3">My booking requests</h3>
+  <div  name="upper-part-booking-requests d-flex">
+      <div class="action-booking col-3">
+        <p>Deny</p>
+        <p>Approve</p>
+      </div>
+      <div class="bookings-container col-8">
+        <% @my_costumes.each do |costume| %>
+
+            <% costume.bookings.each do |booking| %>
+              <% if booking.status == 'pending' %>
+          <div class='booking d-flex'>
+
+                <div class="d-flex justify-content-between">
+                  <li class="list-unstyled">
+                    <%= booking.start_date %> -
+                    <%= booking.end_date %>
+                  </li>
+                  <div class="d-flex">
+                      <%= link_to approve_booking_path(booking), remote: true, data: { turbolinks: false } do %>
+                      <i class="fas fa-check mx-2 text-white"></i>
+                      <% end %>
+                      <%= link_to deny_booking_path(booking), remote: true, data: { turbolinks: false } do %>
+                      <i class="fas fa-window-close text-white"></i>
+                      <% end %>
+                  </div>
+                </div>
+
+          </div>
+              <% end %>
+            <% end %>
+        <% end %>
+      </div>
+
+
+
+  </div>
+
+
+
+
+
+</div>
