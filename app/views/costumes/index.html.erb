@@ -2,27 +2,26 @@
   <div class="container main_container">
 
       <div class= "form-group py-2" style="width:100%">
-        <div class= "d-flex" >
+        <div class= "form-card" >
           <%= simple_form_for :filter, url: costumes_path, method: :get do |f| %>
             <div class="d-flex">
-              <div>
-                <%= f.input :query, label: false, placeholder: 'query' %>
+              <div class = "p-2 flex-fill">
+                <%= f.input :query, label: false, placeholder: 'keyword' %>
               </div>
-              <div>
+              <div class = "p-2 flex-fill">
                 <%= f.input :location, label: false, placeholder: 'location' %>
               </div>
-              <div>
+              <div class = "p-2">
                 <%= f.input :min_price, label: false, placeholder: "Min price" %>
               </div>
-              <div>
+              <div class = "p-2">
                 <%= f.input :max_price, label: false, placeholder: "Max price" %>
               </div>
-            </div>
-
-              <div>
-                <%= f.submit "search", class: "btn btn-danger text-center"%>
+              <div class = "p-1">
+                <%= f.submit "🔎", class: "btn btn-danger text-center"%>
               </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
 
