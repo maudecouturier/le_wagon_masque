@@ -1,7 +1,10 @@
-<div class="container main_container my-4">
-  <div class="pb-5" name="upper-part-booking-requests">
-    <h3>My bookings</h3>
-      <h5 class='mt-5 mb-4'>Pending:</h5>
+<div class="container container_mycostumes">
+      <h3 class="mb-3">My booking requests</h3>
+  <div  name="upper-part-booking-requests d-flex">
+      <div class="action-booking col-3">
+        <p>Deny</p>
+        <p>Approve</p>
+      </div>
       <div class="bookings-container col-8">
         <% @my_costumes.each do |costume| %>
 
@@ -34,13 +37,8 @@
 
   </div>
 
-  <div>
 
-  </div>
 
 
 
 </div>
-
-
-
