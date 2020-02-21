@@ -12,6 +12,7 @@ import { loadDynamicBannerText } from '../components/banner';
 import { initFlatpicker } from  "../components/init_flatpickr";
 import { initMapbox } from '../components/init_mapbox';
 import { initAutocomplete } from '../components/init_autocomplete';
+import starRating from '../components/star_rating';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your JS functions here
@@ -19,6 +20,7 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpicker();
   initMapbox();
   initAutocomplete();
+  starRating();
   $('.dropdown-toggle').dropdown();
 });
 
