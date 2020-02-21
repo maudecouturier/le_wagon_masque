@@ -33,7 +33,11 @@
                   </div>
                   <!-- <div class="d-flex py-4 justify-content-left"> -->
                     <!-- <p>Rating : <%= booking.review.rating %></p> -->
-                    <p> ⭐️⭐️⭐️⭐️⭐️ </p>
+                    <div class="d-flex">
+                    <% booking.review.rating.times do %>
+                    <i class="fas fa-star"></i>
+                    <% end %>
+                    </div>
                     <p><%= booking.review.content %></p>
                 <!--   </div> -->
                 </div>
@@ -43,8 +47,13 @@
                   <%= simple_form_for [booking, @review] do |f| %>
                   <div class="d-flex">
                       <%= f.input :booking_id, as: :hidden, input_html: {value: booking.id} %>
-                    <div style="width: 100px; margin-right: 5px">
-                      <%= f.input :rating, collection: Review::RATINGS, label: false %>
+                      <%= f.input :rating, as: :hidden, label: false %>
+                    <div class="stars-rating d-flex" style="width: 128px; margin-left: 5px; margin-top: 10px;">
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
+                      <i class="far fa-star"></i>
                     </div>
                     <div class="flex-grow-1" style="margin-right: 5px">
                       <%= f.input :content, placeholder: "It was amazing! 🥳", as: :string, label: false %>

@@ -12,6 +12,7 @@ import { loadDynamicBannerText } from '../components/banner';
 import { initFlatpicker } from  "../components/init_flatpickr";
 import { initMapbox } from '../components/init_mapbox';
 import { initAutocomplete } from '../components/init_autocomplete';
+import starRating from '../components/star_rating';
 import { priceCalculation } from '../components/price_calculator';
 import { initDraggable } from '../components/draggable';
 
@@ -21,6 +22,7 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpicker();
   initMapbox();
   initAutocomplete();
+  starRating();
   priceCalculation();
   $('.dropdown-toggle').dropdown();
   initDraggable();
