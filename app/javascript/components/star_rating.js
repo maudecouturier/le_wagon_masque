@@ -17,6 +17,7 @@ const starRating = () => {
         };
       });
 
+
   // quand je clique sur une étoile je veux remplacer la classe de chaque étoile vide de l'index 0 à l'index de l"étoile cliquée par une étoile pleine
   // je veux compter le nombre d'étoile pleine / ou index
   // je veux l'insérer dans le champ caché de rating
