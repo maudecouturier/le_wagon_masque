@@ -73,7 +73,7 @@ cow.photo.attach(io: file_cow, filename: 'cow.jpg')
 cow.save!
 
 file_batman = URI.open("https://images.unsplash.com/photo-1547355332-7c6fcb397868?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
-batman = Costume.new(title:"Batman", user: julien, location: "Champs-Elysées", price: 30, size: "M", gender: "M", theme: "other")
+batman = Costume.new(title:"Batman", user: julien, location: "Montrouge", price: 30, size: "M", gender: "M", theme: "other")
 batman.photo.attach(io: file_batman, filename: 'batman.jpg', content_type: 'image/jpg')
 batman.save!
 
@@ -83,12 +83,12 @@ casapapel.photo.attach(io: file_casapapel, filename: 'casapapel.jpg')
 casapapel.save!
 
 file_hercule = URI.open("https://images.unsplash.com/photo-1535648451240-482a0bbd6e02?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
-hercule = Costume.new(title:"Hercule", user: julien, location: "Tour-eiffel", price: 30, size: "M", gender: "M", theme: "comics")
+hercule = Costume.new(title:"Hercule", user: julien, location: "Montreuil", price: 30, size: "M", gender: "M", theme: "comics")
 hercule.photo.attach(io: file_hercule, filename: 'hercule.jpg')
 hercule.save!
 
 file_hacker = URI.open("https://images.unsplash.com/photo-1567360728282-1483bf7a98bd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60")
-hacker = Costume.new(title:"Hacker USA", user: lea, location: "Paris", price: 30, size: "M", gender: "M", theme: "politics")
+hacker = Costume.new(title:"Hacker USA", user: lea, location: "Boulogne", price: 30, size: "M", gender: "M", theme: "politics")
 hacker.photo.attach(io: file_hacker, filename: 'hacker.jpg')
 hacker.save!
 
