@@ -3,7 +3,7 @@
   <h1 style="padding-left: 7px">🧟‍♀️My costumes🦸🏻‍♂️</h1>
 
   <%= link_to "🧙🏻‍♂️Add a costume", new_costume_path, {:style=>'padding-left: 8px; text-decoration:none; color:grey;'}  %>
-    <% @my_costumes.each do |costume| %>
+    <% @my_costumes.reverse.each do |costume| %>
       <div class="row align-items-center" name="row_costumes_bookings">
 
         <div class="col-8" name="my-costumes-cards">
