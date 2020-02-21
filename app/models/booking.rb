@@ -8,6 +8,11 @@ class Booking < ApplicationRecord
   # validates :end_date, presence: true, date: { after_or_equal_to:  :start_date}
   validate :end_date_is_after_start_date
 
+  scope :pending, -> { where status: 'pending'}
+  scope :approved, -> { where status: 'approved'}
+  scope :denied, -> { where status: 'denied'}
+  scope :cancelled, -> { where status: 'cancelled'}
+
   private
 
   def end_date_is_after_start_date

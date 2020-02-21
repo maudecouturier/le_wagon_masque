@@ -30,7 +30,7 @@ class CostumesController < ApplicationController
   end
 
   def my_costumes
-    @my_costumes = Costume.where(user: current_user)
+    @my_costumes = current_user.costumes
   end
 
   def new
