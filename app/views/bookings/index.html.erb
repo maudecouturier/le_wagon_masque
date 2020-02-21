@@ -1,7 +1,7 @@
 
 <div class="container main_container my-4">
 
-  <div class="row">
+  <div class="row booking-title">
     <h1>My bookings</h1>
   </div>
 
@@ -11,44 +11,56 @@
         <div class="card-booking">
           <%= cl_image_tag booking.costume.photo.key if booking.costume.photo.attached? %>
           <div class="col-9 h-100 d-flex flex-column">
-            <div class="card-booking-infos d-flex justify-content-between">
+            <div class="card-booking-infos d-flex justify-content-between h-50">
               <h1><%= booking.costume.title %></h1>
               <div class="d-flex flex-column">
-              <p>Start date : <%= booking.start_date %></p>
-              <p>End date : <%= booking.end_date %></p>
+                <p>Start date : <%= booking.start_date %></p>
+                <p>End date : <%= booking.end_date %></p>
+                <%#= link_to "Cancel", cancel_booking_path(booking), remote: true, data: { turbolinks: false } %>
+                <%= link_to "Cancel", cancel_booking_path(booking) %>
               </div>
             </div>
-            <div class="card-booking-infos d-flex flex-column justify-content-around">
+            <% if Date.today > booking.end_date %>
               <% if booking.review != nil %>
-                <h4>Your review</h4>
-                <p>Rating : <%= booking.review.rating %></p>
-                <p><%= booking.review.content %></p>
-                <%= link_to review_path(booking.review),
+                <div class="card-booking-review d-flex flex-column h-50">
+                  <div class="d-flex align-items-center">
+                  <h5 style="margin-right: 10px">My review</h5>
+                  <%= link_to review_path(booking.review),
                               method: :delete,
                               data: { confirm: "Are you sure?" }  do %>
-                <i class="fas fa-trash-alt"></i>
-                <% end %>
-              <% else %>
-                <h4>Add a review</h4>
-                <%= simple_form_for [booking, @review] do |f| %>
-                <div class="d-flex py-4">
-                    <%= f.input :booking_id, as: :hidden, input_html: {value: booking.id} %>
-                  <div style="width: 100px; margin-right: 5px">
-                    <%= f.input :rating, collection: Review::RATINGS, label: false %>
+                  <i class="fas fa-trash-alt"></i>
+                  <% end %>
                   </div>
-                  <div class="flex-grow-1" style="margin-right: 5px">
-                    <%= f.input :content, placeholder: "It was amazing! 🥳", as: :string, label: false %>
-                  </div>
-                  <div style="padding:5px">
-                    <%= f.submit "Post my review" %>
-                  </div>
+                  <!-- <div class="d-flex py-4 justify-content-left"> -->
+                    <!-- <p>Rating : <%= booking.review.rating %></p> -->
+                    <p> ⭐️⭐️⭐️⭐️⭐️ </p>
+                    <p><%= booking.review.content %></p>
+                <!--   </div> -->
                 </div>
-                <% end %>
-              </div>
+              <% else %>
+                <div class="card-booking-review d-flex flex-column h-50">
+                  <h5>Add a review</h5>
+                  <%= simple_form_for [booking, @review] do |f| %>
+                  <div class="d-flex">
+                      <%= f.input :booking_id, as: :hidden, input_html: {value: booking.id} %>
+                    <div style="width: 100px; margin-right: 5px">
+                      <%= f.input :rating, collection: Review::RATINGS, label: false %>
+                    </div>
+                    <div class="flex-grow-1" style="margin-right: 5px">
+                      <%= f.input :content, placeholder: "It was amazing! 🥳", as: :string, label: false %>
+                    </div>
+                    <div style="padding:5px">
+                      <%= f.submit "Post my review" %>
+                    </div>
+                  </div>
+                  <% end %>
+                </div>
               <% end %>
+            <% else %>
+              <h5 style="margin: 10px">Are you ready party?</h5>
+            <% end %>
             </div>
           </div>
-          <%= link_to "Cancel", cancel_booking_path(booking), remote: true, data: { turbolinks: false } %>
       </div>
     <% end %>
   <% end %>

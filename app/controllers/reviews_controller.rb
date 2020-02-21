@@ -1,15 +1,13 @@
 class ReviewsController < ApplicationController
-  def new
-    @review = Review.new
-  end
 
   def create
     @review = Review.new(review_params)
     @review.user = current_user
-    if @review.save!
+    if @review.save
       redirect_to bookings_path
     else
-      render :new
+      @bookings = Booking.where(user: current_user)
+      render 'bookings/index'
     end
   end
 
