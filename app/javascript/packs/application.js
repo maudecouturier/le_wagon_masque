@@ -22,7 +22,9 @@ document.addEventListener('turbolinks:load', () => {
   initFlatpicker();
   initMapbox();
   initAutocomplete();
-  starRating();
+  if (document.querySelector('.stars-rating')) {
+    starRating();
+  }
   priceCalculation();
   $('.dropdown-toggle').dropdown();
   initDraggable();
