@@ -111,6 +111,5 @@ booking_1 = Booking.create!(user: charles, costume: batman, start_date: Date.new
 booking_2 = Booking.create!(user: jeanne, costume: casapapel, start_date: Date.new(2020,01,12), end_date: Date.new(2020,01,15))
 booking_3 = Booking.create!(user: lea, costume: astronaut, start_date: Date.new(2019,10,31), end_date: Date.new(2019,11,02))
 
-
 puts "Bookings created!"
 

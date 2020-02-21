@@ -1,52 +1,10 @@
-<<<<<<< HEAD
-<div class="home-banner" style="background-image: url('<%= image_path 'home_banner2.jpg' %>');">
-  <h1 class="m-5">
-    <span id="banner-typed-text"></span>
-  </h1>
-  </p>
-</div>
-
-
-
-<div class="container main_container my-4">
-
-  <div class="row my-4">
-    <div class="cards" name='cards-grid'>
-      <% @costumes.each do |costume| %>
-        <%= link_to costume_path(costume), class: "card-links" do %>
-
-            <div class="card-costume">
-              <div class="image">
-                <%= cl_image_tag costume.photo.key, class: 'card-costume-image' if costume.photo.attached? %>
-                <h6 class="card-trip-pricing text-black"><%= costume.price %>€</h6>
-              </div>
-              <div class="card-costume-infos">
-                <div>
-                  <h6><%= costume.title.capitalize%></h6>
-                </div>
-              </div>
-            </div>
-        <% end %>
-      <% end %>
-    </div>
-
-
-    <div id="map"
-     style="width: 100%;
-     height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-     </div>
-
-=======
-
 <div style="background-color: #F4F4F4">
   <div class="container main_container">
     <div class="row" style= "position: relative;">
       <div class=col-7>
 
         <div class="cards" name='cards-grid'>
-          <% @costumes.each do |costume| %>
+          <% @costumes.reverse.each do |costume| %>
             <%= link_to costume_path(costume), class: "card-links" do %>
                 <div class="card-costume">
                   <div class="image">
@@ -74,8 +32,6 @@
       </div>
 
     </div>
-
->>>>>>> 93ec90bd226ba9eaa08cd8ca6379984e59989d1a
   </div>
 
 </div>
